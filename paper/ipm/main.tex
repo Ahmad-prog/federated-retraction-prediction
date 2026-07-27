@@ -1,6 +1,6 @@
 % Information Processing & Management (IP&MC 2026) submission.
 % Elsevier elsarticle class, single-column review format, Vancouver-numbered refs.
-% Compile: pdflatex main; pdflatex main  (manual thebibliography, no bibtex pass needed)
+% Compile: pdflatex main; bibtex main; pdflatex main; pdflatex main
 \documentclass[review,12pt]{elsarticle}
 
 \usepackage{graphicx}
@@ -412,8 +412,8 @@ Spandidos & 2{,}815 & 703 & 0.250 & 2017 \\
 We evaluate on a stratified 20\% held-out test set shared by all training
 regimes. \emph{Local-only} trains one model per silo and averages test
 performance (the current deployable reality); \emph{centralized} pools all
-data (the legally unattainable ideal; logistic regression, Random
-Forest~\cite{ref_usman_websci25}-style, XGBoost, and the MLP);
+data (the legally unattainable ideal; logistic regression, a Random-Forest
+baseline in the style of~\cite{ref_usman_websci25}, XGBoost, and the MLP);
 \emph{federated} trains the MLP with Algorithm~\ref{alg:fl}
 ($R{=}50$, $E{=}2$, SGD with momentum 0.9, learning rate 0.05, $\mu{=}0.01$).
 
@@ -607,8 +607,8 @@ curated articles collapses to chance on the open corpus: small-corpus results
 do not generalize, independently of feature quality. \emph{Second} (T4),
 restricted to abstract-level features, the very architecture that achieves
 0.88 accuracy with full-text sections~\cite{ref_usman_websci25} drops to
-chance on its own corpus; to our knowledge this is the first quantification of how
-much retraction signal resides exclusively in paywalled full text. This is
+chance on its own corpus, providing a direct quantification of how much
+retraction signal resides exclusively in paywalled full text. This is
 the strongest empirical argument for federation: the decisive features exist
 only where the data cannot leave. \emph{Third} (T2 vs.\ T3), our large-corpus
 model transfers to the curated biomedical benchmark only through its
@@ -636,8 +636,9 @@ prevalence skew it remains an open question.
 \section{Conclusion}
 \label{sec:conclusion}
 We reformulated retraction prediction as cross-silo federated learning and
-showed, on a corpus 180$\times$ larger than prior work, that publishers can
-jointly train a screening model that recovers 92\% of the unattainable
+showed, on a corpus 180$\times$ larger than prior stylistic corpora, that
+publishers can jointly train a screening model that recovers 92\% of the
+unattainable
 centralized ideal without sharing a single record, while models trained on
 any silo alone, or on small curated corpora, fail outside their origin. By
 quantifying the full-text signal locked behind paywalls (0.88 $\rightarrow$
@@ -683,127 +684,7 @@ entirely the authors' own. After using these tools the authors reviewed and
 edited the content as needed and take full responsibility for the content of
 the publication.
 
-\begin{thebibliography}{99}
-\bibitem{ref_rw}
-Retraction Watch Database. Center for Scientific Integrity / Crossref (2023--2026).
-\url{http://retractiondatabase.org}
-
-\bibitem{ref_vannoorden}
-Van Noorden, R.: More than 10,000 research papers were retracted in 2023 -- a
-new record. Nature \textbf{624}, 479--481 (2023)
-
-\bibitem{ref_usman_tpdl23}
-Usman, M., Balke, W.-T.: On retraction cascade? Citation intention analysis as
-a quality control mechanism in digital libraries. In: TPDL 2023, LNCS 14241,
-pp. 117--131. Springer (2023)
-
-\bibitem{ref_usman_tpdl24}
-Usman, M., Balke, W.-T.: Tracing the retraction cascade: identifying
-non-retracted but potentially retractable articles. In: TPDL 2024, LNCS,
-pp. 109--126. Springer (2024)
-
-\bibitem{ref_usman_dasfaa25}
-Usman, M., Das, M., Balke, W.-T.: Anticipating retractions in scientific
-databases using LLM-based citation analysis. In: DASFAA 2025, pp. 274--284.
-Springer (2025)
-
-\bibitem{ref_usman_websci25}
-Usman, M., Balke, W.-T.: Scientific accountability: detecting salient features
-of retracted articles. In: Proc.\ 17th ACM Web Science Conference (WebSci
-2025). ACM (2025)
-
-\bibitem{ref_bibliometric}
-Liu, J., Wang, X., Liang, X.: Bibliometric feature identification and analysis
-of retracted papers in biomedicine: an interpretable machine learning
-perspective. Inf. Process. Manag. \textbf{62}(4), 104176 (2025)
-
-\bibitem{ref_fedavg}
-McMahan, B., Moore, E., Ramage, D., Hampson, S., Ag{\"u}era y Arcas, B.:
-Communication-efficient learning of deep networks from decentralized data.
-In: AISTATS 2017, pp. 1273--1282 (2017)
-
-\bibitem{ref_fedprox}
-Li, T., Sahu, A.K., Zaheer, M., Sanjabi, M., Talwalkar, A., Smith, V.:
-Federated optimization in heterogeneous networks. In: MLSys 2020 (2020)
-
-\bibitem{ref_kairouz}
-Kairouz, P., McMahan, H.B., et al.: Advances and open problems in federated
-learning. Found. Trends Mach. Learn. \textbf{14}(1--2), 1--210 (2021)
-
-\bibitem{ref_dpfl}
-McMahan, H.B., Ramage, D., Talwar, K., Zhang, L.: Learning differentially
-private recurrent language models. In: ICLR 2018 (2018)
-
-\bibitem{ref_openalex}
-Priem, J., Piwowar, H., Orr, R.: OpenAlex: a fully-open index of scholarly
-works, authors, venues, institutions, and concepts. arXiv:2205.01833 (2022)
-
-\bibitem{ref_flesch}
-Flesch, R.: A new readability yardstick. J. Appl. Psychol. \textbf{32}(3),
-221--233 (1948)
-
-\bibitem{ref_kincaid}
-Kincaid, J.P., Fishburne, R.P., Rogers, R.L., Chissom, B.S.: Derivation of new
-readability formulas for Navy enlisted personnel. Research Branch Report 8-75
-(1975)
-
-\bibitem{ref_steen}
-Steen, R.G.: Retractions in the scientific literature: is the incidence of
-research fraud increasing? J. Med. Ethics \textbf{37}(4), 249--253 (2011)
-
-\bibitem{ref_fang}
-Fang, F.C., Steen, R.G., Casadevall, A.: Misconduct accounts for the majority
-of retracted scientific publications. Proc. Natl. Acad. Sci. USA
-\textbf{109}(42), 17028--17033 (2012)
-
-\bibitem{ref_grieneisen}
-Grieneisen, M.L., Zhang, M.: A comprehensive survey of retracted articles from
-the scholarly literature. PLoS ONE \textbf{7}(10), e44118 (2012)
-
-\bibitem{ref_barilan}
-Bar-Ilan, J., Halevi, G.: Post retraction citations in context: a case study.
-Scientometrics \textbf{113}, 547--565 (2017)
-
-\bibitem{ref_fletcher}
-Fletcher, A.H.A., Stevenson, M.: Predicting retracted research: a dataset and
-machine learning approaches. Research Integrity and Peer Review (2025).
-\url{https://doi.org/10.1186/s41073-025-00168-w}
-
-\bibitem{ref_else}
-Else, H., Van Noorden, R.: The fight against fake-paper factories that churn
-out sham science. Nature \textbf{591}, 516--519 (2021)
-
-\bibitem{ref_cabanac}
-Cabanac, G., Labb\'e, C., Magazinov, A.: Tortured phrases: a dubious writing
-style emerging in science. arXiv:2107.06751 (2021)
-
-\bibitem{ref_scaffold}
-Karimireddy, S.P., Kale, S., Mohri, M., Reddi, S.J., Stich, S.U., Suresh,
-A.T.: SCAFFOLD: stochastic controlled averaging for federated learning. In:
-ICML 2020, pp. 5132--5143 (2020)
-
-\bibitem{ref_ditto}
-Li, T., Hu, S., Beirami, A., Smith, V.: Ditto: fair and robust federated
-learning through personalization. In: ICML 2021, pp. 6357--6368 (2021)
-
-\bibitem{ref_zhu}
-Zhu, L., Liu, Z., Han, S.: Deep leakage from gradients. In: NeurIPS 2019,
-pp. 14747--14756 (2019)
-
-\bibitem{ref_dpfin}
-Basu, P., Singha Roy, T., Naidu, R., Muftuoglu, Z.: Privacy enabled financial
-text classification using differential privacy and federated learning. In:
-ECONLP Workshop, EMNLP 2021. arXiv:2110.01643 (2021)
-
-\bibitem{ref_docvqa}
-Tobaben, M., et al.: NeurIPS 2023 competition: privacy-preserving federated
-learning document VQA. Transactions on Machine Learning Research (2025).
-arXiv:2411.03730
-
-\bibitem{ref_rieke}
-Rieke, N., Hancox, J., Li, W., Milletar\`i, F., Roth, H.R., Albarqouni, S., et
-al.: The future of digital health with federated learning. npj Digital
-Medicine \textbf{3}, 119 (2020)
-\end{thebibliography}
+\bibliographystyle{elsarticle-num}
+\bibliography{refs}
 
 \end{document}
