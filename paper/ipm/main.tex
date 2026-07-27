@@ -164,7 +164,8 @@ by title and abstract for topical relevance and assessed at full text for
 eligibility. Consistent with our emphasis on reproducibility, we apply an
 \emph{open-artifact} criterion: studies that release an open dataset or open
 source code form the reproducible core of the synthesis, while other studies
-are retained for context. Algorithm~\ref{alg:slr} formalises the procedure;
+are retained for context. Algorithm~\ref{alg:slr} formalises the procedure
+and Figure~\ref{fig:review} depicts the corresponding flow;
 backward and forward citation chasing (snowballing) was applied to the
 included set. The two large-scale retraction corpora most comparable to ours,
 Usman and Balke~\cite{ref_usman_websci25} and Fletcher and
@@ -193,6 +194,15 @@ year range $[y_0,y_1]{=}[2015,2026]$
 \State \Return $E$ (synthesised), $C$ (reproducibility-prioritised core)
 \end{algorithmic}
 \end{algorithm}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{review_flow.png}
+\caption{Systematic study-selection protocol (Algorithm~\ref{alg:slr}):
+identification, screening, and full-text eligibility, followed by an
+open-artifact filter that isolates the reproducible core of the synthesis.}
+\label{fig:review}
+\end{figure}
 
 \subsection{Retraction and research-integrity analytics}
 Retraction has become a systemic feature of the literature: large-scale
@@ -331,8 +341,18 @@ tool. All results are means $\pm$ standard deviation over three seeds.
 \section{A 138K-Article Federated Benchmark}
 \label{sec:data}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{corpus_pipeline.png}
+\caption{Corpus construction: retraction records from Retraction Watch are
+enriched via OpenAlex, paired with publisher- and year-matched controls,
+featurised, and partitioned into naturally non-IID silos.}
+\label{fig:corpus}
+\end{figure}
+
 \paragraph{Corpus construction.}
-Positives are all Retraction Watch~\cite{ref_rw} research articles with a
+As summarised in Figure~\ref{fig:corpus}, positives are all Retraction
+Watch~\cite{ref_rw} research articles with a
 resolvable DOI whose record nature is \emph{Retraction} (37{,}648 after
 filtering). Each is enriched via the OpenAlex API~\cite{ref_openalex} with
 authorship, venue, citation, and abstract metadata. Controls are sampled at
