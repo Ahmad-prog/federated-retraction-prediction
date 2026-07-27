@@ -15,14 +15,6 @@ data/processed/gapfix_*
 data/processed/*.npz
 model_cache/
 
-# LaTeX build artifacts
-*.aux
-*.bbl
-*.blg
-*.out
-*.synctex.gz
-paper/**/*.log
-paper/ipm/compile*.log
 
 # OS / editor
 .DS_Store

@@ -1,6 +1,0 @@
-                        auprc  roc_auc  recall_at_5fpr  balanced_accuracy_at_0.5
-usman_rf_on_138k        0.283    0.506           0.065                       NaN
-ours_textonly_on_usman  0.691    0.637           0.267                       NaN
-usman_within_corpus_cv  0.525    0.532           0.065                     0.526
-
-baselines: our corpus positive rate = 0.272, his corpus positive rate = 0.500
