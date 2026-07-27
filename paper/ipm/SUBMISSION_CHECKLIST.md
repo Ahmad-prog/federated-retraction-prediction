@@ -21,24 +21,25 @@ papers eligible for a special issue in *IP&M* (IF 8.1) or *DIM* (IF 8.3).
 - [x] All numbers, tables, figures carried over from the finished study.
 - [x] Compiles with no undefined references/citations.
 
-## YOU MUST DECIDE before submitting (in `main.tex`)
-1. **Authorship** — currently `Muhammad Ahmad` (Independent Researcher, Pakistan)
-   only. This work reproduces/extends Usman & Balke. Confirm with your
-   supervisor whether **Usman / Wolf-Tilo Balke should be co-authors** and add
-   an affiliation (university) if applicable. Edit the `\author`/`\affiliation`
-   block near the top of `main.tex`.
-2. **Repository URL** — the Data-availability section says "URL to be inserted
-   upon acceptance." If you have a public GitHub repo, put it in now (IP&MC is
-   not double-blind — it's a named submission).
-3. **Track selection** — on the submission site, pick the best-fit thematic
-   track. Recommended: a track under IP&M covering scholarly information /
-   digital libraries / responsible information systems (e.g. **FIRM** or a
-   data-intelligence / responsible-IS track). Confirm exact track list on the
-   portal.
-4. **Page/length limits** — IP&M is a journal (no hard page cap), but the
-   conference track may specify one. Check the portal; if a limit applies, we
-   can switch `\documentclass[review,12pt]` → `\documentclass[final,5p,times,twocolumn]`
-   for the compact two-column form.
+## RESOLVED this round
+- [x] **Authorship** — Muhammad Ahmad (corresponding) + **Muhammad Tanvir Afzal,
+      Gisma University of Applied Sciences GmbH, Potsdam, Germany**
+      (tanvir.afzal@gisma.com) added. NOTE: Ahmad is still listed as
+      "Independent Researcher, Pakistan" — if you are a Gisma student, tell me
+      and I'll move you to the Gisma affiliation.
+- [x] **Repository URL** — public repo created and inserted in Data-availability:
+      https://github.com/Ahmad-prog/federated-retraction-prediction
+- [x] **Abstract** trimmed to 243 words (IP&M limit: 250).
+
+## STILL TO DECIDE before submitting
+1. **Track selection** — pick the best-fit thematic track on the portal
+   (scholarly information / digital libraries / responsible-IS / FIRM).
+2. **Page/length limits** — I researched this (DYOR): the IP&MC/IP&M guidance
+   points to the IP&M journal guide, which sets an **abstract ≤ 250 words** (done)
+   but **no hard page limit** (it's a journal). No per-track page cap was
+   published at the time of writing — confirm on the submission portal. If a cap
+   appears, switch `\documentclass[review,12pt]` →
+   `\documentclass[final,5p,times,twocolumn]` for the compact two-column form.
 
 ## How to compile
 - **Overleaf (recommended for final):** upload `main.tex` + `figures/`, pick
