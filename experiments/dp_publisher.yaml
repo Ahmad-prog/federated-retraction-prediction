@@ -1,0 +1,9 @@
+features: data/processed/features.parquet
+sample_rows: null
+seeds: [42, 43, 44]
+partition:
+  by: publisher
+  k: 10
+rounds: 50
+clip: 1.0
+sigmas: [0.0, 0.3, 0.5, 1.0, 2.0]

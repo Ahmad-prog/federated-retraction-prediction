@@ -1,0 +1,12 @@
+features: data/processed/features.parquet
+sample_rows: null
+seeds: [42, 43, 44]
+partition:
+  by: publisher
+  k: 10
+fl:
+  strategies: [fedavg, fedprox, fedbal]
+  rounds: 50
+  local_epochs: 2
+  lr: 0.05
+  mu: 0.01

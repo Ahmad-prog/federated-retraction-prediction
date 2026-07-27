@@ -1,0 +1,9 @@
+features: data/processed/features_interim.parquet
+sample_rows: null
+seeds: [42]
+partition:
+  by: publisher
+  k: 6
+rounds: 30
+clip: 1.0
+sigmas: [0.0, 0.5, 1.0]

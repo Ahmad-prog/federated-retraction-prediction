@@ -1,0 +1,12 @@
+Usman corpus rows: 464, positives: 232
+  enriched 0/464
+  enriched 100/464
+  enriched 200/464
+  enriched 300/464
+  enriched 400/464
+Europe PMC metadata found for 0/464
+             auprc  roc_auc  recall_at_5fpr  round  balanced_accuracy_at_0.5
+central_rf   0.513    0.509           0.047    NaN                       NaN
+central_xgb  0.501    0.505           0.047    NaN                       NaN
+central_mlp  0.514    0.491           0.069    NaN                       NaN
+fl_fedavg    0.508    0.518           0.030   50.0                     0.504

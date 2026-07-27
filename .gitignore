@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Large data / caches (rebuilt via data/README.md) — keep only processed feature matrix
+data/raw/
+data/cache/
+data/cache_pub/
+data/processed/corpus*.parquet
+data/processed/fulltext_features.parquet
+data/processed/gapfix_*
+data/processed/*.npz
+model_cache/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+paper/**/*.log
+paper/ipm/compile*.log
+
+# OS / editor
+.DS_Store
+.env
