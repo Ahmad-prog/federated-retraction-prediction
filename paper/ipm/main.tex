@@ -152,22 +152,24 @@ the reproducibility focus of this work.
 
 \subsection{Review methodology}
 \label{sec:review-method}
-We identified prior work through a structured search rather than convenience
-sampling. Bibliographic databases (Scopus, Web of Science, the ACL Anthology,
-DBLP, and arXiv) were queried with Boolean combinations of two concept groups:
-(i) \emph{integrity} terms --- ``retraction'', ``research integrity'',
+We identified prior work through a structured, targeted search guided by
+explicit criteria rather than convenience sampling, drawing on Scopus, Web of
+Science, the ACL Anthology, DBLP, and arXiv. Search terms combined two concept
+groups: (i) \emph{integrity} terms --- ``retraction'', ``research integrity'',
 ``scientific misconduct'', ``paper mill'' --- and (ii) \emph{method} terms ---
 ``prediction'', ``classification'', ``federated learning'', ``differential
-privacy'', ``non-IID''. Records were restricted to 2015--2026, with particular
-attention to 2024--2026 to capture the current state of the art, then screened
-by title and abstract for topical relevance and assessed at full text for
-eligibility. Consistent with our emphasis on reproducibility, we apply an
+privacy'', ``non-IID''. We prioritised 2015--2026, with particular attention to
+2024--2026 to capture the current state of the art; candidate records were
+screened by title and abstract for topical relevance and assessed at full text
+for eligibility. Consistent with our emphasis on reproducibility, we apply an
 \emph{open-artifact} criterion: studies that release an open dataset or open
 source code form the reproducible core of the synthesis, while other studies
-are retained for context. Algorithm~\ref{alg:slr} formalises the procedure
-and Figure~\ref{fig:review} depicts the corresponding flow;
-backward and forward citation chasing (snowballing) was applied to the
-included set. The two large-scale retraction corpora most comparable to ours,
+are retained for context. Algorithm~\ref{alg:slr} formalises the procedure and
+Figure~\ref{fig:review} depicts the corresponding flow; backward and forward
+citation chasing (snowballing) was applied to the included set. We do not claim
+exhaustive systematic coverage of these fast-moving literatures; rather, the
+protocol makes our inclusion criteria explicit and reproducible, and
+prioritises evidence that can be independently verified. The two large-scale retraction corpora most comparable to ours,
 Usman and Balke~\cite{ref_usman_websci25} and Fletcher and
 Stevenson~\cite{ref_fletcher}, both satisfy the open-artifact criterion and
 are therefore selected by, not merely cited in, this protocol.
@@ -618,10 +620,15 @@ style is the portable component of retraction signal.
 
 \section{Discussion and Limitations}
 \label{sec:discussion}
-\emph{Simulation vs.\ deployment.} Our silos are simulated from public
-metadata; a production federation would add per-publisher full-text
-features, the signals T4 shows to be decisive, making our results a
-conservative lower bound. \emph{Label noise.} Recent articles may be
+\emph{Metadata-only federation (scope).} By design, our federated experiments
+use only publicly reproducible metadata and abstract features, so that the
+benchmark itself can be released openly; the full-text features that T4 shows
+to be decisive are held privately by each publisher and are therefore not
+exercised in our federated runs. Our federated results are thus a conservative
+lower bound and, equally, a motivation: demonstrating federated training
+directly on publisher-held full text is the essential next step and requires a
+real multi-publisher deployment rather than a simulation. We make this scope
+explicit rather than leaving it implicit. \emph{Label noise.} Recent articles may be
 retracted after data collection; the temporal experiment bounds this effect.
 \emph{Coverage bias.} Retraction Watch over-represents fields and publishers
 with active integrity teams; publisher-year matching removes the
@@ -649,6 +656,20 @@ mechanisms whose guarantees strengthen exactly as the federation grows. For
 the digital-library and scholarly-communication community, this reframes
 retraction screening from a data-pooling problem, which is legally
 foreclosed, into a model-sharing one, which is not.
+
+\section*{Ethics and responsible use}
+This study uses only publicly available records (Retraction Watch via Crossref,
+OpenAlex, and Europe PMC) under their respective terms; no human subjects or
+private data are involved. Publisher-level statistics (Table~\ref{tab:silos})
+are reported to characterise the natural heterogeneity of the federated
+setting and must not be read as a ranking or judgement of individual
+publishers' integrity, particularly because Retraction Watch coverage is itself
+uneven across publishers and eras. A retraction-screening model of this kind is
+intended as an editorial \emph{triage} aid that surfaces articles for human
+review, not as an automated verdict on any article or author: because false
+positives carry reputational cost, any deployment should retain a human in the
+loop and operate at a conservative false-positive rate (the R@5\%FPR regime
+reported here).
 
 \section*{CRediT authorship contribution statement}
 \textbf{Muhammad Ahmad:} Conceptualization, Methodology, Software, Data
