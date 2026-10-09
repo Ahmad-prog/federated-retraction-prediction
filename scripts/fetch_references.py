@@ -6,6 +6,7 @@ on sustained 429s it exits cleanly (rerun after midnight UTC resumes).
 """
 from __future__ import annotations
 
+import os
 import json
 import sys
 import time
@@ -19,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 BASE = "https://api.openalex.org/works"
-MAILTO = "ahmad.stmu@gmail.com"
+MAILTO = os.environ.get("OPENALEX_MAILTO", "")  # your e-mail for the OpenAlex polite pool
 CACHE = ROOT / "data/cache/references"
 CACHE.mkdir(parents=True, exist_ok=True)
 

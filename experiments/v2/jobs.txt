@@ -1,0 +1,69 @@
+010_emb_abs_modernbert: .venv/bin/python scripts/v2/c1_embed.py --source abstracts --model modernbert --max-len 1024
+030_emb_abs_modernbert: .venv/bin/python scripts/v2/c1_embed.py --source abstracts --model modernbert --max-len 1024
+040_emb_abs_qwen8b: .venv/bin/python scripts/v2/c1_embed.py --source abstracts --model qwen3emb8b --max-len 1024 --batch-tokens 32768
+045_certainty_abstracts: .venv/bin/python scripts/v2/c5_certainty.py
+05c_abs_s42_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --regime central --max-len 512 --seed 42
+05f_abs_s42_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --regime fedavg --max-len 512 --seed 42
+05l_abs_s42_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --regime local --max-len 512 --seed 42
+060_ft_smoke: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime fedavg --rounds 1 --max-docs 2000 --seed 42
+061_ft_emb_modernbert: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c1_embed.py --source fulltext --field sections --model modernbert --max-len 8192 --batch-tokens 65536
+062_ft_emb_qwen4b: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c1_embed.py --source fulltext --field sections --model qwen3emb4b --max-len 4096 --batch-tokens 32768
+070_ft_s42_central: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime central --seed 42
+071_ft_s42_fedavg: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime fedavg --seed 42
+072_ft_s42_local: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime local --seed 42
+073_ft_s43_central: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime central --seed 43
+074_ft_s43_fedavg: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime fedavg --seed 43
+075_ft_s43_local: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime local --seed 43
+076_ft_s44_central: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime central --seed 44
+077_ft_s44_fedavg: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime fedavg --seed 44
+078_ft_s44_local: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime local --seed 44
+090_ft_dp_s42_sig0.5: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime fedavg_dp --dp-sigma 0.5 --seed 42
+091_ft_dp_s42_sig1.0: until [ -f data_v2/FT_READY ]; do sleep 120; done; .venv/bin/python scripts/v2/c3_lora_fl.py --regime fedavg_dp --dp-sigma 1.0 --seed 42
+100_abs_s43_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --regime central --max-len 512 --seed 43
+101_abs_s43_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --regime fedavg --max-len 512 --seed 43
+110_absB_s42_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime central --seed 42
+111_absB_s42_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime fedavg --seed 42
+112_absB_s42_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime local --seed 42
+113_absB_s43_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime central --seed 43
+114_absB_s43_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime fedavg --seed 43
+115_absB_s43_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime local --seed 43
+116_absB_s44_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime central --seed 44
+117_absB_s44_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime fedavg --seed 44
+118_absB_s44_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime local --seed 44
+120_ftabs_s42_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime central --seed 42
+121_ftabs_s42_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime fedavg --seed 42
+122_ftabs_s42_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime local --seed 42
+123_ftabs_s43_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime central --seed 43
+124_ftabs_s43_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime fedavg --seed 43
+125_ftabs_s43_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime local --seed 43
+126_ftabs_s44_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime central --seed 44
+127_ftabs_s44_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime fedavg --seed 44
+128_ftabs_s44_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source ft_abstracts --max-len 512 --regime local --seed 44
+140_dpsgd_central_eps8: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime dpsgd_central --target-eps 8 --dp-lot 1024 --lr 1e-3 --epochs 3 --seed 42
+141_dpsgd_central_eps3: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime dpsgd_central --target-eps 3 --dp-lot 1024 --lr 1e-3 --epochs 3 --seed 42
+142_dpsgd_fedavg_eps8: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime dpsgd_fedavg --target-eps 8 --dp-lot 1024 --lr 1e-3 --rounds 5 --seed 42
+150_abs_fedper_s42: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime fedper --seed 42
+151_abs_fedper_s43: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime fedper --seed 43
+152_abs_fedper_s44: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime fedper --seed 44
+153_abs_ditto_s42: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime ditto --seed 42
+154_abs_ditto_s43: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime ditto --seed 43
+155_abs_ditto_s44: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --regime ditto --seed 44
+160_ft8k_s42_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source fulltext --max-len 8192 --bs 4 --grad-accum 4 --regime central --seed 42
+161_ft8k_s42_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source fulltext --max-len 8192 --bs 4 --grad-accum 4 --regime fedavg --seed 42
+162_ft8k_s42_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source fulltext --max-len 8192 --bs 4 --grad-accum 4 --regime local --seed 42
+200_qwen_s42_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime central --seed 42
+201_qwen_s42_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime fedavg --seed 42
+202_qwen_s42_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime local --seed 42
+210_mbl_s42_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime central --seed 42
+211_mbl_s42_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime fedavg --seed 42
+212_mbl_s42_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime local --seed 42
+213_mbl_s43_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime central --seed 43
+214_mbl_s43_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime fedavg --seed 43
+215_mbl_s43_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime local --seed 43
+216_mbl_s44_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime central --seed 44
+217_mbl_s44_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime fedavg --seed 44
+218_mbl_s44_local: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model answerdotai/ModernBERT-large --lr 2e-4 --regime local --seed 44
+230_qwen_s43_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime central --seed 43
+231_qwen_s43_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime fedavg --seed 43
+232_qwen_s44_central: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime central --seed 44
+233_qwen_s44_fedavg: .venv/bin/python scripts/v2/c3_lora_fl.py --source abstracts --max-len 512 --model Qwen/Qwen3-1.7B --lr 1e-4 --regime fedavg --seed 44

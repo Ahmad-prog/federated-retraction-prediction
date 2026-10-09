@@ -19,3 +19,15 @@ model_cache/
 # OS / editor
 .DS_Store
 .env
+
+# Pipeline data, results and server-side state (rebuilt by scripts/v2; not distributed)
+data_v2/
+results_v2/
+release/
+paper/
+hf_home/
+logs/
+queue/
+queue0/
+*.pt
+*.npz
