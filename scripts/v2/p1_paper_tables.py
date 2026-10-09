@@ -47,8 +47,8 @@ MODEL = {
 }
 FAM = {
     "c3_lora_abstracts": "ModernBERT-base", "c3_lora_abstracts_modernbert-large": "ModernBERT-large",
-    "c3_lora_abstracts_qwen3-1.7b": "Qwen3-1.7B", "c3_lora_ftabs": "ModernBERT-base (FT corpus, abstract)",
-    "c3_lora": "ModernBERT-base (full text, 2,048)", "c3_lora_8192": "ModernBERT-base (full text, 8,192)",
+    "c3_lora_abstracts_qwen3-1.7b": "Qwen3-1.7B", "c3_lora_ftabs": "ModernBERT-base (OA subset, abstract)",
+    "c3_lora": "ModernBERT-base (OA subset, full text 2,048)", "c3_lora_8192": "ModernBERT-base (OA subset, full text 8,192)",
 }
 
 
@@ -72,13 +72,24 @@ def m(x: pd.Series, d: int = 3) -> str:
 
 
 def table(name: str, caption: str, header: list[str], rows: list[list[str]], label: str,
-          align: str | None = None, size: str = "\\footnotesize", group_breaks: list[int] | None = None):
+          align: str | None = None, size: str = "\\footnotesize", group_breaks: list[int] | None = None,
+          spanner: str | None = None, section_rows: dict | None = None, place: str = "!htbp"):
+    """spanner: a LaTeX header row placed above `header`; section_rows: {row index: label} inserts a full-width
+    italic label row (preceded by a rule) before that row."""
     align = align or ("l" * 1 + "r" * (len(header) - 1))
-    out = ["\\begin{table}[!htbp]", f"\\caption{{{caption}}}\\label{{{label}}}", size,
-           f"\\begin{{tabular*}}{{\\hsize}}{{@{{\\extracolsep{{\\fill}}}}{align}@{{}}}}", "\\toprule",
-           " & ".join(header) + "\\\\", "\\colrule"]
+    if name.startswith("a_") and place == "!htbp":
+        place = "H"
+    out = [f"\\begin{{table}}[{place}]", f"\\caption{{{caption}}}\\label{{{label}}}", size,
+           f"\\begin{{tabular*}}{{\\hsize}}{{@{{\\extracolsep{{\\fill}}}}{align}@{{}}}}", "\\toprule"]
+    if spanner:
+        out.append(spanner)
+    out += [" & ".join(header) + "\\\\", "\\colrule"]
     for i, r in enumerate(rows):
-        if group_breaks and i in group_breaks and i > 0:
+        if section_rows and i in section_rows:
+            if i > 0:
+                out.append("\\colrule")
+            out.append(f"\\multicolumn{{{len(header)}}}{{@{{}}l}}{{\\textit{{{section_rows[i]}}}}}\\\\")
+        elif group_breaks and i in group_breaks and i > 0:
             out.append("\\colrule")
         out.append(" & ".join(str(c) for c in r) + "\\\\")
     out += ["\\botrule", "\\end{tabular*}", "\\end{table}", ""]
@@ -132,10 +143,18 @@ def t_silos():
     st = json.loads(f.read_text())["benchmark"]
     NUM["corpus"] = {k: st[k] for k in ("n", "n_retracted", "n_control", "n_publishers", "n_venues",
                                        "n_fields", "n_subfields", "year_min", "year_max")}
+    if "silo_publisher_retracted" not in st and (ROOT / "data_v2/tabular_v2.parquet").exists():
+        sys.path.insert(0, str(ROOT))
+        from scripts.v2.b2_main_benchmark import partition
+        d = pd.read_parquet(ROOT / "data_v2/tabular_v2.parquet", columns=["publisher", "retracted"])
+        st["silo_publisher_retracted"] = d.groupby(partition(d, "publisher")).retracted.sum().astype(int).to_dict()
+        full = json.loads(f.read_text())
+        full["benchmark"]["silo_publisher_retracted"] = st["silo_publisher_retracted"]
+        f.write_text(json.dumps(full, indent=1))
     rows = []
     for s, n in sorted(st["silo_publisher_sizes"].items(), key=lambda kv: -kv[1]):
-        r = st["silo_publisher_retracted_rate"][s]
-        rows.append([esc(s), f"{n:,}", f"{round(n * r):,}", f"{r:.3f}"])
+        k = st["silo_publisher_retracted"][s]
+        rows.append([esc(s), f"{n:,}", f"{k:,}", f"{k / n:.3f}"])
     rows.append(["\\textbf{Total}", f"{st['n']:,}", f"{st['n_retracted']:,}", f"{st['n_retracted'] / st['n']:.3f}"])
     table("a_silos", "FedRetract benchmark: the ten publisher silos ($K{=}10$; the 84 smaller publishers form "
           "\\emph{Other}). Controls are matched on publisher and publication year.",
@@ -155,8 +174,9 @@ def t_leak():
             NUM.setdefault("leak", {})[f"{src}|{field}"] = {"kw_auprc": float(kw.group(1)), "kw_auc": float(kw.group(2)),
                                                            "tfidf_auprc": float(tf.group(1)) if tf else None}
     table("a_leak", "Leakage audit after cleaning. A classifier that may only use notice vocabulary "
-          "(retract*, withdraw*, erratum, corrigendum, expression of concern) is at the base rate; "
-          "a TF-IDF bag of words still separates the classes through topic (Appendix~\\ref{app:topic}).",
+          "(retract*, withdraw*, erratum, corrigendum, expression of concern; \\emph{Kw}) is at the base rate; "
+          "a TF-IDF bag of words still separates the classes (AUPRC 0.66 on title + abstract), largely through topic "
+          "vocabulary (the topic-only baseline is in Section~\\ref{sec:topic}). Kw = keyword-only; Base = base rate.",
           ["Corpus", "Field", "Base", "Kw AUPRC", "Kw ROC", "TF-IDF AUPRC", "TF-IDF ROC"], rows, "tab:leak",
           align="llrrrrr")
 
@@ -178,9 +198,12 @@ def t_b2():
             rows.append(r)
         base = b[(b.setting == setting) & (b.view == "pooled") & (b.silo == "ALL")].pos_rate.iloc[0]
         table(f"a_b2_{setting}", f"Tabular benchmark, {cap}. Pooled test set, 10 seeds; base rate {base:.3f}. "
-              "Local models are scored on the pooled test set (each silo's model, averaged).",
-              ["Model", "AUPRC (pub.)", "ROC", "R@5\\%", "AUPRC (field)", "ROC", "R@5\\%"], rows,
-              f"tab:b2_{setting}", group_breaks=[4, 6])
+              "LogReg = logistic regression; RF = random forest; XGBoost = gradient-boosted trees; MLP = multilayer "
+              "perceptron; R@5\\% = recall at 5\\% false-positive rate. Local models are scored on the pooled test set (each silo's model, averaged).",
+              ["Model", "AUPRC", "ROC-AUC", "R@5\\%", "AUPRC", "ROC-AUC", "R@5\\%"], rows,
+              f"tab:b2_{setting}", group_breaks=[4, 6],
+              spanner=" & \\multicolumn{3}{c}{Publisher silos} & \\multicolumn{3}{c}{Research-field silos}\\\\ "
+                      "\\cmidrule(lr){2-4}\\cmidrule(lr){5-7}")
         NUM.setdefault("b2", {})[setting] = {f"{part}|{mdl}": round(float(p[(p.setting == setting) & (p.partition == part)
                                                                          & (p.model == mdl)].auprc.mean()), 4)
                                             for part in ["publisher", "field"] for mdl in order}
@@ -226,14 +249,16 @@ def t_b3_b4_b7():
         d = b4[(b4.exp == "ksweep") & (b4.k == k)]
         rows.append([f"Publisher silos, $K{{=}}{int(k)}$", "--", "--", ms(d.auprc), m(d.roc_auc)])
     d = b4[b4.exp == "journal"]
-    rows.append([f"Journal clients ($n={int(d.n_clients.iloc[0]) if d.n_clients.notna().any() else 0}$)", "--", "--", ms(d.auprc), m(d.roc_auc)])
+    rows.append([f"Journal clients ({int(d.n_clients.min())}--{int(d.n_clients.max())}, by split)", "--", "--",
+                 ms(d.auprc), m(d.roc_auc)])
     for exp, lab2 in [("dp_publisher", "Client DP, publishers ($K{=}10$)"), ("dp_journal", "Client DP, journals ($q{=}0.1$)")]:
         for sg in sorted(b4[b4.exp == exp].sigma.unique()):
             d = b4[(b4.exp == exp) & (b4.sigma == sg)]
             eps = d.epsilon.mean()
             rows.append([lab2, f"{sg:g}", "$\\infty$" if not np.isfinite(eps) else f"{eps:.1f}", ms(d.auprc), m(d.roc_auc)])
     table("a_b4", "Consortium size and client-level differential privacy (tabular MLP, DP-FedAvg with RDP "
-          "accounting, 10 seeds). Publisher clients: all ten every round, $\\delta{=}10^{-3}$. Journal clients "
+          "accounting, 10 seeds). Publisher clients: all ten every round, $\\delta{=}10^{-3}$ (below $1/K$ for $K{=}10$ clients; a smaller "
+          "$\\delta$ only lowers AUPRC further). Journal clients "
           "(every journal with $\\geq$ 60 training articles + one client per publisher for the rest): $q{=}0.1$, "
           "200 rounds, $\\delta{=}10^{-5}$.", ["Setting", "$\\sigma$", "$\\varepsilon$", "AUPRC", "ROC"],
           rows, "tab:b4", align="lrrrr")
@@ -270,9 +295,13 @@ def t_b6():
             d = t23[(t23.features == feat) & (t23.model == mdl)]
             rows.append([f"Ours $\\rightarrow$ curated corpus ({MODEL[mdl]})", feat.replace("_", " "),
                          ms(d.accuracy_at_0_5 if "accuracy_at_0_5" in d else d["accuracy_at_0.5"]), ms(d.auprc)])
-    table("a_b6", "Comparison with the hand-curated corpus of prior work (232 retracted + 232 matched articles). "
+    table("a_b6", "Comparison with the hand-curated corpus of Usman and Balke (WebSci 2025; ref.~[6] of the paper; "
+          "232 retracted + 232 matched articles). "
           "\\emph{all 10} = the ten section-level readability and certainty features of the prior protocol; "
-          "\\emph{abstract only} = the same features computed on the abstract.",
+          "\\emph{abstract only} = the same features computed on the abstract. Subsets: all464 = all 464 articles; "
+          "clean180 = articles none of whose section features is a repeated placeholder value (such values are "
+          "unevenly distributed between the classes in our copy of the corpus and can reveal the label); "
+          "audited172 = clean180 articles that passed a manual audit.",
           ["Experiment", "Features", "Accuracy", "AUPRC"], rows, "tab:b6", align="llrr")
 
 
@@ -310,30 +339,57 @@ def t_c3(c3: pd.DataFrame):
                                             roc_sd=("roc_auc", "std"), r5=("recall_at_5fpr", "mean"), n=("seed", "nunique"))
         NUM["lora"][fam] = {f"{k[0]}|{k[1]}": {kk: (None if pd.isna(vv) else round(float(vv), 4)) for kk, vv in v.items()}
                             for k, v in g.iterrows()}
+    def own_macro(fam, mdl, view="own_silo"):
+        d = c3[(c3.fam == fam) & (c3.model == mdl) & (c3.view == view)]
+        return d.groupby("seed").auprc.mean()
+
+    p4 = RES / "p4_review"
+    pa = pd.read_csv(p4 / "prospective_auprc.csv") if (p4 / "prospective_auprc.csv").exists() else None
+    oth = pd.read_csv(p4 / "other_publishers.csv") if (p4 / "other_publishers.csv").exists() else None
+    one = "\\rlap{$^{\\ddagger}$}"
+
+    def cell(x):
+        return ms(x) + (one if x.dropna().size == 1 else "")
+
+    def fmt_d(g):  # ROC-AUC with AUPRC in brackets (mean over seeds)
+        return "--" if g.empty else f"{g.roc_auc.mean():.3f} ({g.auprc.mean():.3f})"
+
+    tfidf = NUM["leak"]["Abstract corpus|title+abstract"]["tfidf_auprc"]
+    fmt_js = RES / "p3_review/summary.json"
+    fmt_only = json.loads(fmt_js.read_text())["format"]["format_only_auprc"] if fmt_js.exists() else np.nan
     rows = []
-    spec = [("Central (pooled data)", "central_lora", "pooled"), ("FedAvg", "fl_fedavg_lora", "pooled"),
-            ("Local only$^{\\dagger}$", "local_lora", "pooled_personal"),
-            ("FedAvg + local FT$^{\\dagger}$", "fl_fedavg_lora_ft", "pooled_personal")]
-    for lab, mdl, view in spec:
-        r = [lab]
-        for fam in fams:
-            d = a[(a.fam == fam) & (a.model == mdl) & (a.view == view)]
-            r.append(ms(d.auprc))
-        rows.append(r)
-    r = ["Prospective ROC-AUC (central)"]
-    for fam in fams:
-        r.append(ms(a[(a.fam == fam) & (a.model == "central_lora") & (a.view == "prospective")].roc_auc))
-    rows.append(r)
-    r = ["Prospective ROC-AUC (FedAvg)"]
-    for fam in fams:
-        r.append(ms(a[(a.fam == fam) & (a.model == "fl_fedavg_lora") & (a.view == "prospective")].roc_auc))
-    rows.append(r)
-    table("main_lora", "Abstract-based screening on FedRetract (pooled test set, AUPRC, mean $\\pm$ s.d. over 3 seeds; "
-          "base rate 0.290; tabular XGBoost 0.512, topic-only 0.455). $^{\\dagger}$Each publisher scores its own "
-          "articles with its own model; scores are pooled. Prospective: 213 articles retracted after the "
-          "snapshot vs.\\ same-publisher test controls.",
+    for lab, mdl in [("Central (data pooled)", "central_lora"), ("FedAvg", "fl_fedavg_lora")]:
+        rows.append([lab] + [cell(a[(a.fam == f) & (a.model == mdl) & (a.view == "pooled")].auprc) for f in fams])
+    rows.append(["Single publisher's model$^{\\ast}$"] +
+                [cell(a[(a.fam == f) & (a.model == "local_lora") & (a.view == "pooled")].auprc) for f in fams])
+    rows.append(["No language model: TF-IDF words / formatting",
+                 f"\\multicolumn{{3}}{{c}}{{{tfidf:.3f} / {fmt_only:.3f}}}"])
+    for lab, mdl in [("Central (data pooled)", "central_lora"), ("Local only", "local_lora"),
+                     ("FedAvg + local FT", "fl_fedavg_lora_ft")]:
+        rows.append([lab] + [cell(own_macro(f, mdl)) for f in fams])
+    if oth is not None:
+        for lab in ["Central (data pooled)", "FedAvg"]:
+            key = lab.split(" (")[0]
+            rows.append([lab] + [cell(oth[(oth.model == FAM[f]) & (oth.regime == key)].other_auprc) for f in fams])
+    for lab, mdl in [("Local only", "local_lora"), ("FedAvg + local FT", "fl_fedavg_lora_ft")]:
+        rows.append([lab] + [cell(own_macro(f, mdl, "out_silo")) for f in fams])
+    n_ctl = ""
+    if pa is not None:
+        w = pa[(pa.subset == "with abstract") & (pa.controls == "unweighted")]
+        n_ctl = f"{int(w.n_neg.min()):,}--{int(w.n_neg.max()):,}"
+        for lab, reg in [("Central (data pooled)", "central"), ("FedAvg", "fedavg")]:
+            rows.append([lab] + [fmt_d(w[(w.model == FAM[f]) & (w.regime == reg)]) for f in fams])
+    NUM["main_table"] = rows
+    table("main_lora", "Abstract-based screening: AUPRC, mean $\\pm$ s.d. over 3 seeds (${}^{\\ddagger}$\\,one seed); "
+          "base rate 0.290 (metadata-only XGBoost 0.512, topic only 0.455). (a) Pooled test set ($^{\\ast}$each "
+          "publisher's model, averaged; no-LM baselines: 5-fold CV); (b) mean over publishers of the AUPRC on their own "
+          "test articles; (c) the same on the other nine publishers' articles; (d) 61 later retractions with an "
+          f"abstract vs.\\ {n_ctl} same-publisher controls with an abstract (base rate 0.014).",
           ["Training regime", "ModernBERT-base", "ModernBERT-large", "Qwen3-1.7B"], rows, "tab:main",
-          group_breaks=[4])
+          section_rows={0: "(a) Pooled test set", 4: "(b) Each publisher scores its own articles",
+                        7: "(c) Other publishers' articles",
+                        7 + (2 if oth is not None else 0) + 2: "(d) Later retractions with an abstract: ROC-AUC (AUPRC)"},
+          place="t")
 
     # appendix: every family x model x view
     rows = []
@@ -350,7 +406,10 @@ def t_c3(c3: pd.DataFrame):
                          str(g.seed.nunique())])
     table("a_c3_all", "All LoRA fine-tuning results (pooled views; \\emph{pooled personal} = each publisher's own "
           "model on its own slice, scores pooled; \\emph{prospective} = articles retracted after the snapshot). "
-          "Abstract corpus base rate 0.290; full-text (FT) corpus 0.359 ($K{=}8$ publisher silos).",
+          "Abstract corpus base rate 0.290; open-access (OA) full-text subset 0.359 ($K{=}8$ publisher silos); the OA "
+          "subset's prospective view has only 29 articles (15 retracted) and is not interpreted. "
+          "R@5\\% = recall at 5\\% false-positive rate; n = seeds; FT = local fine-tuning; \\emph{(silo avg.)} = "
+          "each publisher's model scored on the whole pooled test set, averaged over publishers.",
           ["Model / corpus", "Regime", "View", "AUPRC", "ROC-AUC", "R@5\\%", "n"], rows, "tab:c3_all",
           align="lllrrrr", size="\\scriptsize", group_breaks=breaks)
 
@@ -366,7 +425,9 @@ def t_c3(c3: pd.DataFrame):
     table("a_c3_persilo", "Own-silo AUPRC per publisher for abstract LoRA (C = central, F = FedAvg, L = local only, "
           "P = FedAvg + local fine-tuning; mean over seeds).",
           ["Silo"] + [f"{x}" for x in ["C", "F", "L", "P"] * 3], rows, "tab:c3_persilo",
-          align="l" + "r" * 12, size="\\scriptsize")
+          align="l" + "r" * 12, size="\\scriptsize",
+          spanner=" & \\multicolumn{4}{c}{ModernBERT-base} & \\multicolumn{4}{c}{ModernBERT-large} & "
+                  "\\multicolumn{4}{c}{Qwen3-1.7B}\\\\ \\cmidrule(lr){2-5}\\cmidrule(lr){6-9}\\cmidrule(lr){10-13}")
     # personalization
     d = a[(a.fam == "c3_lora_abstracts")]
     rows = []
@@ -413,12 +474,14 @@ def t_privacy(c3: pd.DataFrame):
         for eps in [np.inf, -1.0, 8.0, 4.0, 2.0, 1.0, 0.5]:
             d = rec[(rec.model == mdl) & (rec.epsilon == eps)]
             lab = "no clipping, no noise" if eps == np.inf else ("clipping only" if eps == -1 else f"{eps:g}")
-            rows.append([MODEL[mdl], lab, m(d.sigma, 2) if eps not in (np.inf, -1.0) else "0", ms(d.auprc),
+            rows.append([MODEL[mdl], m(d.sigma, 2) if eps not in (np.inf, -1.0) else "0", lab, ms(d.auprc),
                          m(d.roc_auc), m(d.mia_auc), m(d.mia_adv)])
     table("a_dp_heads", "Record-level DP-SGD on a linear head over frozen ModernBERT-large abstract embeddings "
           "(federated PCA-128) + tabular features (5 seeds). Federated: per-publisher DP-SGD, FedAvg of the heads. "
-          "MIA = loss-threshold membership inference on 5,000 training vs.\\ 5,000 test articles.",
-          ["Regime", "$\\varepsilon$", "$\\sigma$", "AUPRC", "ROC", "MIA AUC", "MIA adv."], rows, "tab:dp_heads",
+          "$\\sigma$ = noise multiplier; clip norm $C{=}1$; \\emph{clipping only} = clipped per-example gradients "
+          "without noise, the reference for the cost of the noise. MIA = loss-threshold membership inference on 5,000 "
+          "training vs.\\ 5,000 test articles; MIA adv. = membership advantage, max(TPR $-$ FPR).",
+          ["Regime", "$\\sigma$", "$\\varepsilon$", "AUPRC", "ROC", "MIA AUC", "MIA adv."], rows, "tab:dp_heads",
           align="llrrrrr", group_breaks=[7])
     NUM["dp_heads"] = rec.groupby(["model", "epsilon"]).auprc.mean().round(4).reset_index().replace({np.inf: "inf"}).to_dict("records")
 
@@ -428,10 +491,12 @@ def t_privacy(c3: pd.DataFrame):
         d = j[j.sigma == sg]
         e = d.epsilon.mean()
         rows.append([f"{sg:g}", "$\\infty$" if not np.isfinite(e) else f"{e:.1f}", ms(d.auprc), m(d.roc_auc), m(d.mia_auc)])
-    table("a_dp_journal", f"Client-level DP-FedAvg with journal clients ({int(j.n_clients.iloc[0])} clients: every "
+    table("a_dp_journal", f"Client-level DP-FedAvg with journal clients ({int(j.n_clients.min())}--{int(j.n_clients.max())} "
+          "clients depending on the split: every "
           "journal with $\\geq$ 60 training articles, plus one client per publisher for its remaining articles; "
           "sampling rate $q{=}0.1$, 200 rounds) on the same frozen-embedding features "
-          "(5 seeds, $\\delta{=}10^{-5}$).", ["$\\sigma$", "$\\varepsilon$", "AUPRC", "ROC", "MIA AUC"], rows,
+          "(5 seeds, $\\delta{=}10^{-5}$; the 10 seeds of Table~\\ref{tab:b4} give 222--232 clients). Updates are "
+          "clipped to norm 1 in every row; $\\sigma{=}0$ = clipping without noise.", ["$\\sigma$", "$\\varepsilon$", "AUPRC", "ROC", "MIA AUC"], rows,
           "tab:dp_journal", align="rrrrr")
     NUM["dp_journal"] = j.groupby("sigma").agg(eps=("epsilon", "mean"), auprc=("auprc", "mean")).round(4).reset_index().replace({np.inf: "inf"}).to_dict("records")
 
@@ -441,7 +506,11 @@ def t_privacy(c3: pd.DataFrame):
     mia["kind"] = mia.run.str.split("/").str[1].str.replace("scores_", "", regex=False).str.replace(r"_s4\d", "", regex=True)
     rows = []
     for (fam, kind), g in mia.groupby(["fam", "kind"]):
-        rows.append([FAM.get(fam, fam), kind.replace("_", " "), ms(g.mia_auc), ms(g.mia_adv), str(len(g))])
+        kl = {"central": "Central", "fedavg": "FedAvg", "ditto": "Ditto", "local": "Local only",
+              "dpsgd_central_eps3": "DP-SGD central, $\\varepsilon{=}3$",
+              "dpsgd_central_eps8": "DP-SGD central, $\\varepsilon{=}8$",
+              "dpsgd_fedavg_eps8": "DP-SGD federated, $\\varepsilon{=}8$"}.get(kind, kind.replace("_", " "))
+        rows.append([FAM.get(fam, fam), kl, ms(g.mia_auc), ms(g.mia_adv), str(len(g))])
     table("a_mia", "Loss-threshold membership inference against the LoRA models (5,000 training vs.\\ 5,000 test "
           "articles; AUC 0.5 = no leakage; advantage = max TPR $-$ FPR).",
           ["Model", "Regime", "MIA AUC", "Advantage", "n"], rows, "tab:mia", align="llrrr")
@@ -466,7 +535,8 @@ def t_topic():
     table("a_topic", "Topic confound. Topic-only = one-hot OpenAlex field + subfield. Within-subfield ROC-AUC is the "
           "size-weighted mean over the 81 subfields with $\\geq$ 20 test articles of each class. Top-5 share = share of "
           "flags (at 5\\% FPR) falling in the five subfields with most retractions, which hold 25\\% of retracted and "
-          "12\\% of control test articles.",
+          "12\\% of control test articles; Top-5 FP = the same share among false positives. Lift = within-subfield "
+          "AUPRC divided by the subfield's base rate (positive-weighted mean).",
           ["Model", "AUPRC", "ROC", "Within ROC", "Lift", "Top-5 flags", "Top-5 FP", "n"], rows, "tab:topic",
           align="lrrrrrrr", size="\\scriptsize", group_breaks=[2, 5])
     NUM["topic"] = {r[0]: {"auprc": r[1], "within": r[3], "top5_flags": r[5]} for r in rows}
@@ -488,9 +558,13 @@ def t_deploy():
         rows.append(r)
         out[name] = {c: round(float(g[c].mean()), 4) for c in g.columns if c.startswith("prec@")}
     table("a_prev", "Precision under realistic retraction prevalence $\\pi$ (test scores re-weighted to $\\pi$). "
-          "P@R50 = precision at 50\\% recall; P@1\\% = precision among the top 1\\% of articles.",
+          "P@R50 = precision at 50\\% recall; P@1\\% = precision among the top 1\\% of articles. "
+          "$\\pi{=}0.2\\%$ is close to the share of all papers that are retracted; 1\\% and 5\\% correspond to "
+          "high-risk journals.",
           ["Model", "P@R50", "P@1\\%", "P@R50", "P@1\\%", "P@R50", "P@1\\%"], rows, "tab:prev",
-          align="lrrrrrr", size="\\scriptsize")
+          align="lrrrrrr", size="\\scriptsize",
+          spanner=" & \\multicolumn{2}{c}{$\\pi=5\\%$} & \\multicolumn{2}{c}{$\\pi=1\\%$} & "
+                  "\\multicolumn{2}{c}{$\\pi=0.2\\%$}\\\\")
     NUM["prevalence"] = out
     # country
     f10 = pd.read_csv(RES / "b10_fairness_country.csv")
@@ -502,7 +576,9 @@ def t_deploy():
     for (run, mdl), g in f.groupby(["run", "model"], sort=False):
         name = FAM.get(run, "Tabular") + ", " + MODEL.get(mdl.replace("__personal", ""), mdl) + (" (pers.)" if "__personal" in mdl else "")
         rows.append([name] + [m(g[g.country == c].fpr) for c in cs])
-    table("a_country", "False-positive rate by first-author country at a threshold giving 5\\% overall FPR.",
+    table("a_country", "False-positive rate by first-author country at a threshold giving 5\\% overall FPR (control articles). "
+          "CN = China, IN = India, IR = Iran, KR = South Korea, JP = Japan, IT = Italy, US = United States, "
+          "DE = Germany, GB = United Kingdom; pers. = each publisher scores its own articles.",
           ["Model"] + cs, rows, "tab:country", align="l" + "r" * len(cs), size="\\scriptsize")
     # reasons
     r10 = pd.read_csv(RES / "b10_reasons.csv")
@@ -515,7 +591,10 @@ def t_deploy():
     for (run, mdl), g in rr.groupby(["run", "model"], sort=False):
         name = FAM.get(run, "Tabular") + ", " + MODEL.get(mdl.replace("__personal", ""), mdl) + (" (pers.)" if "__personal" in mdl else "")
         rows.append([name] + [m(g[g.reason == x]["recall@5%fpr"], 2) for x in reasons])
-    table("a_reasons", "Recall at 5\\% FPR by Retraction Watch reason category.",
+    table("a_reasons", "Recall at 5\\% FPR by Retraction Watch reason category. Mill = paper mill; Fake PR = fake peer review; "
+          "Image = image problems; Errors = errors in data or results; Plag. = plagiarism or duplication; "
+          "Fabr. = fabrication or falsification; Auth. = authorship or ethics; pers. = each publisher scores its own "
+          "articles.",
           ["Model", "Mill", "Fake PR", "Image", "Errors", "Plag.", "Fabr.", "Auth.", "Other"], rows, "tab:reasons",
           align="l" + "r" * 8, size="\\scriptsize")
     # prospective tabular
@@ -531,6 +610,184 @@ def t_compute(c3: pd.DataFrame):
     NUM["gpu_hours_lora"] = round(float(g.gpu_hours.sum()), 1)
 
 
+def t_review():
+    """Robustness checks of scripts/v2/p3_review_checks.py."""
+    R = RES / "p3_review"
+    if not R.exists():
+        return
+    pm = pd.read_csv(R / "prospective_matched.csv")
+    P4 = RES / "p4_review/prospective_auprc.csv"
+    if P4.exists():
+        pp = pd.read_csv(P4)
+        rows = []
+        for (mdl, reg, sub, wt), g in pp.groupby(["model", "regime", "subset", "controls"], sort=False):
+            c = g[g.seed == 42].iloc[0]
+            rows.append([mdl, {"central": "Central", "fedavg": "FedAvg"}[reg], sub, wt,
+                         f"{int(g.n_pos.iloc[0])} / {int(g.n_neg.mean()):,}", f"{g.base_rate.mean():.3f}",
+                         f"{g.roc_auc.mean():.3f} [{c.roc_lo:.2f}, {c.roc_hi:.2f}]",
+                         f"{g.auprc.mean():.3f} [{c.auprc_lo:.2f}, {c.auprc_hi:.2f}]"])
+        dg = pd.read_csv(RES / "p4_review/prospective_title_only_diagnostics.csv")
+        d_t, d_a = dg[dg.subset == "title only"], dg[dg.subset == "with abstract"]
+        table("a_p3_prosp", "Later-retraction test with matched inputs. 152 of the 213 articles retracted after "
+              "19 July 2026 have no abstract in OpenAlex and are scored on the title; controls are the test articles of "
+              "the same publishers (their number varies with the split; mean over seeds shown). \\emph{Year-matched}: "
+              "controls re-weighted so that their publication years match those of the positives. Values: mean over 3 "
+              "seeds; 95\\% bootstrap intervals from seed 42. Title-only positives are mostly recent Elsevier articles "
+              f"({d_t.pos_share_elsevier.mean() * 100:.0f}\\% Elsevier vs.\\ {d_t.ctl_share_elsevier.mean() * 100:.0f}\\% of "
+              f"title-only controls; median publication year {d_t.pos_median_year.mean():.0f} vs.\\ "
+              f"{d_t.ctl_median_year.mean():.0f}), which partly explains their higher scores; within Elsevier alone the "
+              f"central models reach ROC-AUC {d_t.roc_elsevier_only.min():.2f}--{d_t.roc_elsevier_only.max():.2f} (title "
+              f"only) and {d_a.roc_elsevier_only.min():.2f}--{d_a.roc_elsevier_only.max():.2f} (with abstract).",
+              ["Model", "Regime", "Input", "Controls", "Pos / neg", "Base", "ROC-AUC [95\\% CI]", "AUPRC [95\\% CI]"], rows,
+              "tab:p3_prosp", align="llllrrrr", size="\\scriptsize", group_breaks=list(range(0, len(rows), 4)))
+        NUM["prospective_auprc"] = pp.groupby(["model", "regime", "subset", "controls"])[["roc_auc", "auprc", "base_rate"]].mean().round(3).reset_index().to_dict("records")
+    comp = pd.read_csv(R / "prospective_composition.csv")
+    NUM["prospective_composition"] = comp.head(6).to_dict("records")
+    NUM["prospective_matched"] = pm.groupby(["model", "regime", "subset"])[["roc_auc", "auprc"]].mean().round(3).reset_index().to_dict("records")
+
+    wj = pd.read_csv(R / "within_journal.csv")
+    lab = {"central_lora": "Central", "fl_fedavg_lora": "FedAvg", "fl_fedavg_lora_ft__personal": "FedAvg + local FT (own)",
+           "local_lora__personal": "Local only (own)"}
+    rows = []
+    for (mdl, sc), g in wj.groupby(["model", "scores"], sort=False):
+        j, sf = g[g.group == "journal"], g[g.group == "subfield"]
+        rows.append([mdl, lab[sc], m(g.pooled_auc), m(j.within_auc), f"{j.n_groups.mean():.0f}", f"{j.pos_covered.mean():.2f}",
+                     m(sf.within_auc)])
+    table("a_p3_journal", "Within-journal ROC-AUC: the size-weighted mean over journals with $\\geq$5 retracted and "
+          "$\\geq$5 control test articles (mean over seeds), next to the within-subfield value computed the same way. "
+          "A journal shortcut would make the within-journal value fall towards 0.5. Pos. covered = share of the "
+          "retracted test articles that lie in the journals used. This table requires $\\geq$5 articles of each class "
+          "per group; the topic table (Section~\\ref{sec:topic}) requires $\\geq$20.",
+          ["Model", "Scores", "Pooled ROC", "Within journal", "Journals", "Pos. covered", "Within subfield"], rows,
+          "tab:p3_journal", align="llrrrrr", size="\\scriptsize")
+    NUM["within_journal"] = wj.groupby(["model", "scores", "group"]).within_auc.mean().round(3).reset_index().to_dict("records")
+
+    pr = pd.read_csv(R / "publisher_prior.csv")
+    rows = []
+    for (mdl, sc), g in pr.groupby(["model", "scores"], sort=False):
+        rows.append([mdl, sc, ms(g.pooled_auprc), ms(g.own_silo_macro_auprc), str(g.seed.nunique())])
+    table("a_p3_prior", "Does publisher-specific scoring only add a publisher prior? \\emph{Central + publisher prior} "
+          "shifts the central model's log-odds by each publisher's training retraction rate. It does not help, so the "
+          "gain of publisher-specific models comes from publisher-specific text patterns, not from base rates. "
+          "Pooled = one AUPRC over all test articles; own = mean of the 10 per-publisher AUPRCs.",
+          ["Model", "Scores", "Pooled AUPRC", "Own-publisher AUPRC", "n"], rows, "tab:p3_prior",
+          align="llrrr", size="\\scriptsize")
+    NUM["prior"] = pr.groupby(["model", "scores"])[["pooled_auprc", "own_silo_macro_auprc"]].mean().round(3).reset_index().to_dict("records")
+
+    pa = pd.read_csv(R / "paired_bootstrap.csv")
+    rows = []
+    for (mdl, vs), g in pa.groupby(["model", "vs"], sort=False):
+        sig = int(((g.lo > 0) | (g.hi < 0)).sum())
+        rows.append([mdl, vs, f"{g.delta_auprc.mean():+.3f}", f"[{g.lo.mean():+.3f}, {g.hi.mean():+.3f}]",
+                     f"{sig}/{len(g)}"])
+    table("a_p3_paired", "Paired bootstrap (1,000 resamples of the test articles, same split) of the \\emph{pooled-personal} "
+          "AUPRC (each article scored by its own publisher's model; one AUPRC over all test articles) of "
+          "FedAvg + local fine-tuning minus each alternative (Table~\\ref{tab:p4_own} uses the metric of Table~1b); CI = mean of the per-seed 95\\% intervals; last column = "
+          "seeds whose interval excludes 0.",
+          ["Model", "FedAvg + local FT vs.", "$\\Delta$AUPRC", "95\\% CI", "Seeds"], rows, "tab:p3_paired",
+          align="llrrr", size="\\scriptsize")
+    NUM["paired"] = pa.groupby(["model", "vs"])[["delta_auprc", "lo", "hi"]].mean().round(4).reset_index().to_dict("records")
+
+    js = json.loads((R / "summary.json").read_text())["format"]
+    nd = pd.read_csv(R / "near_duplicates.csv")
+    rows = [["Formatting-only classifier (lengths, casing, punctuation, markup), 5-fold CV",
+             f"AUPRC {js['format_only_auprc']:.3f}, ROC {js['format_only_auc']:.3f}"],
+            ["  same, within subfields", f"ROC {js['format_only_within_subfield_auc']:.3f}"],
+            ["  strongest features", ", ".join(k.replace("_", " ") for k in list(js["top_features"])[:4])]]
+    for mname, v in js["lm_within_format_deciles"].items():
+        rows.append([f"{mname} (central): ROC overall / within formatting-score deciles",
+                     f"{v['lm_auc']:.3f} / {v['lm_auc_within_format_deciles']:.3f}"])
+    hb = js["has_abstract_by_label"]
+    rows += [["Articles with an abstract, control / retracted", f"{hb['0']:.3f} / {hb['1']:.3f}"],
+             ["Median abstract words, control / retracted",
+              f"{js['abstract_words_median_by_label']['0']:.0f} / {js['abstract_words_median_by_label']['1']:.0f}"],
+             ["Test abstracts with a near-duplicate (MinHash $J\\geq$0.5) in training, retracted / control",
+              f"{nd.neardup_share_retracted.mean():.4f} / {nd.neardup_share_control.mean():.4f}"],
+             ["ModernBERT-base central AUPRC, all test / without near-duplicates",
+              f"{nd.auprc_all.mean():.3f} / {nd.auprc_without_neardups.mean():.3f}"]]
+    table("a_p3_format", "Remaining-artefact checks (abstract corpus, base rate 0.290). Formatting carries some signal, "
+          "mostly title style (colons, length, lowercase gene names such as \\emph{miR-}); HTML markup in raw titles is "
+          "equally frequent in both classes (4.0\\% vs.\\ 3.7\\%). The language models keep most of their ranking "
+          "among articles with near-identical formatting scores.", ["Check", "Result"], rows, "tab:p3_format",
+          align="lr", size="\\scriptsize")
+    NUM["format"] = js
+    NUM["neardup"] = nd.mean(numeric_only=True).round(4).to_dict()
+
+
+def t_review2():
+    """Second-round checks of scripts/v2/p4_review_checks.py."""
+    R = RES / "p4_review"
+    if not R.exists():
+        return
+    f = R / "own_paired_bootstrap.csv"
+    if f.exists():
+        o = pd.read_csv(f)
+        rows = []
+        for (mdl, vs), g in o.groupby(["model", "vs"], sort=False):
+            sig = int((g.lo > 0).sum())
+            rows.append([mdl, vs, f"{g.delta_own_auprc.mean():+.3f}", f"[{g.lo.mean():+.3f}, {g.hi.mean():+.3f}]",
+                         f"{sig}/{len(g)}", f"{g.publishers_gaining.mean():.1f} / {int(g.publishers.iloc[0])}"])
+        table("a_p4_own", "Paired bootstrap on the metric of Table~1b: mean over the 10 publishers of the AUPRC on their "
+              "own test articles, FedAvg + local fine-tuning minus each alternative (1,000 resamples drawn within each "
+              "publisher and class). CI = mean of the per-seed 95\\% intervals; \\emph{Seeds} = seeds whose interval lies "
+              "above 0; \\emph{Publishers} = publishers (mean over seeds) on which FedAvg + local FT is higher.",
+              ["Model", "FedAvg + local FT vs.", "$\\Delta$AUPRC", "95\\% CI", "Seeds", "Publishers"], rows,
+              "tab:p4_own", align="llrrrr", size="\\scriptsize")
+        NUM["own_paired"] = o.groupby(["model", "vs"])[["delta_own_auprc", "lo", "hi", "publishers_gaining"]].mean().round(4).reset_index().to_dict("records")
+    f = R / "without_hindawi.csv"
+    if f.exists():
+        h = pd.read_csv(f)
+        rows = []
+        for (mdl, sc), g in h.groupby(["model", "scores"], sort=False):
+            rows.append([mdl, sc, m(g.pooled_auprc_all), m(g.pooled_auprc_no_hindawi), m(g.roc_no_hindawi),
+                         m(g.own_macro_no_hindawi), str(g.seed.nunique())])
+        table("a_p4_hindawi", "Results without the Hindawi silo, whose 2022--2023 special-issue retractions are templated "
+              f"paper-mill batches (evaluation only; models unchanged; base rate without Hindawi {h.base_rate_no_hindawi.mean():.3f}). "
+              "Personalised regimes (FedAvg + local FT, Local only, Ditto, FedPer) score each article with its own "
+              "publisher's model. Own = mean over the nine other publishers of the AUPRC on their own articles.",
+              ["Model", "Scores", "AUPRC (all)", "AUPRC (no Hindawi)", "ROC (no Hindawi)", "Own (no Hindawi)", "n"], rows,
+              "tab:p4_hindawi", align="llrrrrr", size="\\scriptsize")
+        NUM["no_hindawi"] = h.groupby(["model", "scores"]).mean(numeric_only=True).round(4).reset_index().to_dict("records")
+    f = R / "embedding_splits.csv"
+    if f.exists():
+        e = pd.read_csv(f)
+        lo = e[e.exp.str.startswith("held-out")]
+        rows = []
+        cols = ["own data only", "other nine publishers", "all ten publishers"]
+        for q, g in lo.groupby("silo"):
+            r = [esc(q), f"{g.base.mean():.3f}"]
+            for c in cols:
+                gg = g[g.exp == f"held-out publisher: {c}"]
+                r += [m(gg.auprc), m(gg.roc_auc)]
+            rows.append(r)
+        r = ["\\textbf{Mean}", f"{lo.groupby('silo').base.mean().mean():.3f}"]
+        for c in cols:
+            gg = lo[lo.exp == f"held-out publisher: {c}"].groupby("silo")[["auprc", "roc_auc"]].mean()
+            r += [f"{gg.auprc.mean():.3f}", f"{gg.roc_auc.mean():.3f}"]
+        rows.append(r)
+        table("a_p4_lopo", "A new consortium member, simulated on frozen Qwen3-Embedding-8B abstract embeddings with a "
+              "logistic-regression head (3 seeds; same split as the paper). For each publisher, a head is trained on its "
+              "own training articles only, on the other nine publishers' training articles only (the publisher never "
+              "contributed data, as for a new member), or on all ten, and scored on the publisher's test articles.",
+              ["Publisher", "Base", "AUPRC", "ROC", "AUPRC", "ROC", "AUPRC", "ROC"], rows, "tab:p4_lopo",
+              align="lrrrrrrr", size="\\scriptsize", group_breaks=[len(rows) - 1],
+              spanner=" & & \\multicolumn{2}{c}{Own data only} & \\multicolumn{2}{c}{Other nine only} & "
+                      "\\multicolumn{2}{c}{All ten}\\\\ \\cmidrule(lr){3-4}\\cmidrule(lr){5-6}\\cmidrule(lr){7-8}")
+        NUM["lopo"] = {c: lo[lo.exp == f"held-out publisher: {c}"].groupby("silo")[["auprc", "roc_auc"]].mean().mean().round(4).to_dict()
+                       for c in cols}
+        sp = e[~e.exp.str.startswith("held-out")]
+        lab = {"random split (reference)": "Random split (the paper's split)",
+               "journal-grouped: unseen journals": "Journal-grouped: test journals unseen in training",
+               "temporal reference: random train, same size": "Random training sample of the same size, same 2022--2025 test",
+               "temporal: train <= 2020": "Temporal: train on articles up to 2020, test on 2022--2025"}
+        rows = [[lab[k], m(sp[sp.exp == k].base), ms(sp[sp.exp == k].auprc), ms(sp[sp.exp == k].roc_auc)] for k in lab]
+        table("a_p4_splits", "Split sensitivity of the same frozen-embedding head (3 seeds). The temporal test set is a random "
+              "half of the 2022--2025 articles; 2021 is left out as a gap. The last two rows differ only in the years of "
+              "the training articles.", ["Split", "Base", "AUPRC", "ROC-AUC"], rows, "tab:p4_splits", align="lrrr",
+              size="\\scriptsize", group_breaks=[2])
+        NUM["splits"] = sp.groupby("exp")[["auprc", "roc_auc", "base"]].mean().round(4).to_dict("index")
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "paper/final"))
@@ -540,7 +797,7 @@ if __name__ == "__main__":
     TAB.mkdir(parents=True, exist_ok=True)
     c3 = load_c3()
     for fn in [t_silos, t_leak, t_b2, t_b3_b4_b7, t_b6, t_c2, lambda: t_c3(c3), lambda: t_privacy(c3), t_topic,
-               t_deploy, lambda: t_compute(c3)]:
+               t_deploy, lambda: t_compute(c3), t_review, t_review2]:
         fn()
     (OUT / "numbers.json").write_text(json.dumps(NUM, indent=1, default=str), encoding="utf-8")
     print("tables:", sorted(p.name for p in TAB.glob("*.tex")))

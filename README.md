@@ -58,7 +58,9 @@ All paths are relative to the repository root; data go to `data_v2/`, results to
 | 9. LoRA fine-tuning (central, local, FedAvg, FedPer, Ditto, client DP, DP-SGD) | `c3_lora_fl.py` (commands in `experiments/v2/jobs.txt`) | `results_v2/c3_lora*` | 1 GPU per job, ≈63 GPU-h in total |
 | 10. Text-model deployment and topic confound | `b10_text_deployment.py`, `b8_topic_confound.py` | `results_v2/b10_*`, `b8_*` | CPU |
 | 11. Record-level DP heads, journal-level client DP, membership inference | `b11_dp_heads.py` (`--only record/journal/mia`) | `results_v2/b11_dp_heads` | CPU |
-| 12. Tables, numbers and figures of the paper | `p1_paper_tables.py`, `p2_paper_figures.py` | `paper/final/tables`, `numbers.json`, `figures` | CPU |
+| 12. Robustness checks from the saved test scores: matched-input prospective test, within-journal ROC, publisher prior, paired bootstraps, formatting-only classifier, near-duplicates | `p3_review_checks.py` | `results_v2/p3_review` | CPU |
+| 13. Second-round checks: paired bootstrap on the own-publisher metric, other-publisher reference rows, prospective AUPRC with year-matched controls, results without Hindawi, new-member (leave-one-publisher-out), temporal and journal-grouped splits on frozen embeddings | `p4_review_checks.py` | `results_v2/p4_review` | CPU |
+| 14. Tables, numbers and figures of the paper | `p1_paper_tables.py`, `p2_paper_figures.py` | `paper/final/tables`, `numbers.json`, `figures` | CPU |
 
 `experiments/v2/` contains the shell scripts that ran these steps (`run_phaseA.sh`, `data_chain.sh`,
 `cpu_chain*.sh`) and the two GPU job queues (`gpu_queue.sh`, `gpu_queue0.sh`): each job in `jobs.txt` is one line
@@ -68,7 +70,9 @@ Reported numbers exclude smoke-test runs (`*_smoke`) and anything under `results
 
 **Results.** All result files of the paper (CSV/JSON/TXT, 4.4 MB) are in `results_v2/`, so
 `p1_paper_tables.py` and `p2_paper_figures.py` run without re-training. Per-article test scores (`*.npz`) and
-LoRA adapters (`*.pt`) are not included (size); the deployment, topic and membership-inference analyses need them.
+LoRA adapters (`*.pt`) are not included (size); the deployment, topic and membership-inference analyses and steps
+12–13 need them (step 13 also needs the frozen abstract embeddings of step 8). Their outputs are included, so the
+tables regenerate without them.
 
 ## Data
 
