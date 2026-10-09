@@ -1,0 +1,63 @@
+source,emb,with_tab,seed,model,view,silo,auprc,roc_auc,recall_at_5fpr
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,pooled,ALL,0.5404300278514538,0.6907620532150053,0.16157635467980297
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,prospective,ALL,0.6842307302833619,0.6571428571428571,0.13333333333333333
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,BioMed Central,0.49498242473752857,0.6960563802669065,0.10526315789473684
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Dove Medical Press,0.5231234935312326,0.6679606625258799,0.15217391304347827
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Elsevier BV,0.4592500645370924,0.6122685185185185,0.125
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Frontiers Media,0.6188594716329621,0.7554878048780488,0.1951219512195122
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Hindawi Publishing Corporation,0.5452697145652328,0.6740754182422702,0.12008733624454149
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Other,0.5213066791305723,0.6850231529476811,0.15897435897435896
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Public Library of Science,0.6478496926640761,0.7799926308032424,0.3474576271186441
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_logreg,own_silo,Spandidos Publishing,0.5128239989403127,0.6707459207459208,0.09090909090909091
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,pooled,ALL,0.5875769543244226,0.7393787237740399,0.17733990147783252
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,prospective,ALL,0.8705749370455252,0.8095238095238095,0.4666666666666667
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,BioMed Central,0.5659810311136176,0.7449392712550608,0.14035087719298245
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Dove Medical Press,0.5482155448306629,0.6974637681159421,0.10869565217391304
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Elsevier BV,0.47079615163854827,0.652281746031746,0.07142857142857142
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Frontiers Media,0.647363241548724,0.8067073170731707,0.17073170731707318
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Hindawi Publishing Corporation,0.5807619670382891,0.7097708886989709,0.16593886462882096
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Other,0.6302916003031898,0.76440666251987,0.29743589743589743
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Public Library of Science,0.7573388063582126,0.8655121591746499,0.4661016949152542
+fulltext,fulltext_qwen3emb4b_sections,False,46,central_mlp,own_silo,Spandidos Publishing,0.5804638703716725,0.701048951048951,0.25
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,BioMed Central,0.47094000872968816,0.637380309687651,0.08472906403940887
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,BioMed Central,0.535159202255785,0.689608636977058,0.14035087719298245
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,BioMed Central,0.46717009536100035,0.6336959610660099,0.08037578288100208
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Dove Medical Press,0.46077380285006375,0.5970519386707654,0.12413793103448276
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Dove Medical Press,0.5367693720586018,0.692287784679089,0.10869565217391304
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Dove Medical Press,0.45813546687008166,0.5914988934423785,0.12693498452012383
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Elsevier BV,0.46050087896134473,0.6263261659452208,0.10541871921182266
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Elsevier BV,0.4970028236257949,0.6383928571428571,0.16071428571428573
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Elsevier BV,0.45779627553077973,0.6251578493130422,0.10010427528675704
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Frontiers Media,0.5058545382401376,0.6691871106500616,0.13694581280788176
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Frontiers Media,0.6986538723377138,0.814939024390244,0.4146341463414634
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Frontiers Media,0.4982048239876353,0.6613946460333137,0.13141683778234087
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Hindawi Publishing Corporation,0.5400773621906072,0.677461289043618,0.17635467980295566
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Hindawi Publishing Corporation,0.6110046523058135,0.7266776519896507,0.21615720524017468
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Hindawi Publishing Corporation,0.45894697027476894,0.6406444368238087,0.12387791741472172
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Other,0.5217272653672438,0.6806447933695776,0.1438423645320197
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Other,0.602913506296834,0.7278457391664939,0.24102564102564103
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Other,0.5012024964222161,0.6675624968307896,0.12195121951219512
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Public Library of Science,0.5099233875276461,0.6780454157863579,0.129064039408867
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Public Library of Science,0.7823415375658767,0.8750921149594695,0.4661016949152542
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Public Library of Science,0.4853370816352829,0.6472958402306228,0.11259754738015608
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,pooled,Spandidos Publishing,0.45813343883375424,0.5728159742777847,0.1399014778325123
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,own_silo,Spandidos Publishing,0.6286800632015936,0.7281468531468531,0.1590909090909091
+fulltext,fulltext_qwen3emb4b_sections,False,46,local_mlp,out_silo,Spandidos Publishing,0.4477282430415337,0.5633495208986887,0.13388259526261587
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,pooled,ALL,0.551053191294883,0.7067537108749137,0.17635467980295566
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,prospective,ALL,0.8101763051763052,0.7857142857142857,0.2
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,BioMed Central,0.5263929651823092,0.7101514469935523,0.14035087719298245
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Dove Medical Press,0.45669536461715,0.5996376811594204,0.10869565217391304
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Elsevier BV,0.44211305659671224,0.5988756613756614,0.125
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Frontiers Media,0.6052806127930235,0.7765243902439025,0.24390243902439024
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Hindawi Publishing Corporation,0.5669005099726463,0.7001416579837737,0.1462882096069869
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Other,0.5963771178952421,0.7242242034694866,0.2717948717948718
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Public Library of Science,0.6863328074332011,0.833714075165807,0.2966101694915254
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg,own_silo,Spandidos Publishing,0.6880667105910979,0.7957459207459208,0.3181818181818182
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,BioMed Central,0.5464923313441649,0.7437396911081121,0.14035087719298245
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Dove Medical Press,0.507520573782108,0.6925465838509317,0.08695652173913043
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Elsevier BV,0.4942088697712339,0.6724537037037036,0.125
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Frontiers Media,0.7015978347266176,0.8277439024390243,0.4634146341463415
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Hindawi Publishing Corporation,0.5669005099726463,0.7001416579837737,0.1462882096069869
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Other,0.6305054789435568,0.7510125095030755,0.3076923076923077
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Public Library of Science,0.7785958958900048,0.8840825350036846,0.5169491525423728
+fulltext,fulltext_qwen3emb4b_sections,False,46,fl_fedavg_ft10,own_silo,Spandidos Publishing,0.6611709444950431,0.7668997668997669,0.22727272727272727

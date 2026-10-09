@@ -1,0 +1,63 @@
+source,emb,with_tab,seed,model,view,silo,auprc,roc_auc,recall_at_5fpr
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,pooled,ALL,0.5984605320754892,0.7347315080843575,0.19901477832512315
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,prospective,ALL,0.7783593367416897,0.8142857142857143,0.06666666666666667
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,BioMed Central,0.49979495696185383,0.6668166141850351,0.15789473684210525
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Dove Medical Press,0.6358330288227876,0.7624223602484472,0.1956521739130435
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Elsevier BV,0.5721756042401678,0.7080026455026455,0.25
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Frontiers Media,0.6182162743025791,0.7527439024390243,0.17073170731707318
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Hindawi Publishing Corporation,0.5977373225907682,0.7268898462835266,0.185589519650655
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Other,0.6487030182507976,0.7626235399820307,0.2564102564102564
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Public Library of Science,0.6196823478247566,0.7553058216654385,0.2457627118644068
+fulltext,fulltext_modernbert_sections,True,43,central_logreg,own_silo,Spandidos Publishing,0.5378832071608527,0.6952214452214452,0.06818181818181818
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,pooled,ALL,0.6326865646333225,0.7524728303669869,0.24433497536945814
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,prospective,ALL,0.7856748066748067,0.780952380952381,0.06666666666666667
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,BioMed Central,0.570535691828968,0.695906432748538,0.17543859649122806
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Dove Medical Press,0.6751854150641153,0.8198757763975155,0.391304347826087
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Elsevier BV,0.5541726658566788,0.6724537037037037,0.23214285714285715
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Frontiers Media,0.6808058344733244,0.7996951219512195,0.3902439024390244
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Hindawi Publishing Corporation,0.6195386231188438,0.7339288432045145,0.17685589519650655
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Other,0.6741880655677568,0.7841177690234294,0.29743589743589743
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Public Library of Science,0.7018067658581651,0.8039793662490788,0.3559322033898305
+fulltext,fulltext_modernbert_sections,True,43,central_mlp,own_silo,Spandidos Publishing,0.6490093167320433,0.7706876456876457,0.22727272727272727
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,BioMed Central,0.504710676677095,0.6633165146832789,0.1399014778325123
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,BioMed Central,0.5075527811439581,0.7068526015894436,0.07017543859649122
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,BioMed Central,0.5056293083083663,0.6604452410799851,0.1409185803757829
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Dove Medical Press,0.4738226981431616,0.6240689546548195,0.13399014778325122
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Dove Medical Press,0.7106878048253892,0.8015010351966874,0.2826086956521739
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Dove Medical Press,0.4613167183647422,0.6142969630809427,0.12074303405572756
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Elsevier BV,0.5171121973954188,0.6897958407786184,0.11625615763546798
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Elsevier BV,0.531910351910442,0.6498015873015873,0.125
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Elsevier BV,0.5168008461397531,0.6926183365585733,0.10844629822732013
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Frontiers Media,0.49325109965945557,0.6494278219214538,0.1399014778325123
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Frontiers Media,0.5699255878571643,0.7170731707317073,0.2682926829268293
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Frontiers Media,0.4909413827435103,0.6458308169263598,0.13449691991786447
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Hindawi Publishing Corporation,0.522453980129949,0.6696808077296995,0.1477832512315271
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Hindawi Publishing Corporation,0.6133583159807916,0.7347542058372456,0.15502183406113537
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Hindawi Publishing Corporation,0.4312246551122616,0.6168882254453028,0.0933572710951526
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Other,0.5228512239819285,0.6924652809837011,0.129064039408867
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Other,0.5515665805551329,0.7240306862948372,0.1641025641025641
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Other,0.5162142076804352,0.6839730912901645,0.12317073170731707
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Public Library of Science,0.553541581893096,0.710921079073001,0.15960591133004925
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Public Library of Science,0.7753065651335316,0.8372512896094327,0.4830508474576271
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Public Library of Science,0.5267789109022616,0.6916278166278166,0.13154960981047936
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,pooled,Spandidos Publishing,0.4794074139612574,0.6176584963149233,0.12512315270935961
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,own_silo,Spandidos Publishing,0.6826289166020365,0.7934149184149185,0.3181818181818182
+fulltext,fulltext_modernbert_sections,True,43,local_mlp,out_silo,Spandidos Publishing,0.46829118624974786,0.608233233827068,0.11431513903192585
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,pooled,ALL,0.6058626142299232,0.7380722459686837,0.20886699507389161
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,prospective,ALL,0.892140822140822,0.8285714285714286,0.6666666666666666
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,BioMed Central,0.5157464282076356,0.7001049632628581,0.05263157894736842
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Dove Medical Press,0.6252647107180277,0.7396480331262939,0.2391304347826087
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Elsevier BV,0.4964213059921277,0.6332671957671958,0.17857142857142858
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Frontiers Media,0.6452142603648383,0.7914634146341464,0.3170731707317073
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Hindawi Publishing Corporation,0.6420534854162148,0.7568282660360348,0.21397379912663755
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Other,0.6048249198128843,0.7419033796392287,0.21025641025641026
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Public Library of Science,0.6624754915989356,0.769933677229182,0.2796610169491525
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg,own_silo,Spandidos Publishing,0.6518781813683066,0.7561188811188811,0.4090909090909091
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,BioMed Central,0.528521792889425,0.724246513720198,0.08771929824561403
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Dove Medical Press,0.620406132818089,0.772256728778468,0.15217391304347827
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Elsevier BV,0.5619448234147163,0.6699735449735449,0.26785714285714285
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Frontiers Media,0.6291632296188135,0.8057926829268294,0.3170731707317073
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Hindawi Publishing Corporation,0.6340249100883812,0.7499239027359894,0.20087336244541484
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Other,0.6238525411892628,0.7577303199944709,0.19487179487179487
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Public Library of Science,0.755707738676164,0.8244288872512895,0.4491525423728814
+fulltext,fulltext_modernbert_sections,True,43,fl_fedavg_ft10,own_silo,Spandidos Publishing,0.6518646701001419,0.7636946386946387,0.36363636363636365

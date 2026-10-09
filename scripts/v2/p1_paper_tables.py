@@ -126,7 +126,10 @@ def load_c3() -> pd.DataFrame:
 
 # --------------------------------------------------------------------------- tables
 def t_silos():
-    st = json.loads((ROOT / "release/FedRetract/stats.json").read_text())["benchmark"]
+    f = RES / "corpus_stats.json"  # copy of release/FedRetract/stats.json (written by r1_build_release.py)
+    if not f.exists():
+        f = ROOT / "release/FedRetract/stats.json"
+    st = json.loads(f.read_text())["benchmark"]
     NUM["corpus"] = {k: st[k] for k in ("n", "n_retracted", "n_control", "n_publishers", "n_venues",
                                        "n_fields", "n_subfields", "year_min", "year_max")}
     rows = []

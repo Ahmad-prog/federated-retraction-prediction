@@ -1,0 +1,74 @@
+source,emb,with_tab,seed,model,view,silo,auprc,roc_auc,recall_at_5fpr
+abstracts,abstracts_modernbert,True,43,central_logreg,pooled,ALL,0.6579168758601421,0.8110074141284151,0.36024404086265605
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Elsevier BV,0.5471172063269452,0.7367879575481915,0.251661918328585
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Hindawi Publishing Corporation,0.6657289787504684,0.8062174915691014,0.28431372549019607
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,IOS Press,0.6653193889672374,0.8587151303358459,0.3325301204819277
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Other,0.6048891478080073,0.7732347852312205,0.36074637180373187
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Public Library of Science,0.6101976656417413,0.8220664320621296,0.340080971659919
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,SAGE Publishing,0.7877582371860773,0.895384530864791,0.6053811659192825
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Spandidos Publishing,0.529010168911828,0.7828779205817764,0.2198581560283688
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Springer Science+Business Media,0.7463206370847305,0.8560621317932835,0.5313199105145414
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Taylor & Francis,0.7079963139731924,0.8397060854270991,0.4484304932735426
+abstracts,abstracts_modernbert,True,43,central_logreg,own_silo,Wiley,0.8400188922494746,0.9005017618122488,0.6115992970123023
+abstracts,abstracts_modernbert,True,43,central_mlp,pooled,ALL,0.7043033678045296,0.8324238064472452,0.4280646992054484
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Elsevier BV,0.582457394398648,0.755247816042163,0.3466286799620133
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Hindawi Publishing Corporation,0.7511636745063293,0.8446995167522884,0.38235294117647056
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,IOS Press,0.7187628794900408,0.8821603445823768,0.4795180722891566
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Other,0.6340961769579687,0.7911198257065041,0.37733241188666206
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Public Library of Science,0.6735869048623112,0.835188474224757,0.4291497975708502
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,SAGE Publishing,0.779710549331776,0.8955150083436914,0.5650224215246636
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Spandidos Publishing,0.5561049275751826,0.7976023328653202,0.23404255319148937
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Springer Science+Business Media,0.7281040678717283,0.8468155732276635,0.5570469798657718
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Taylor & Francis,0.6979317549906997,0.849197985333343,0.4439461883408072
+abstracts,abstracts_modernbert,True,43,central_mlp,own_silo,Wiley,0.8721637512219235,0.9185570801110651,0.6994727592267135
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Elsevier BV,0.5540642917673654,0.747791375312441,0.23425085130533485
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Elsevier BV,0.6363648552936936,0.779252608809139,0.3779677113010446
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Elsevier BV,0.5448871387714562,0.7425188046595869,0.22285237698081733
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Hindawi Publishing Corporation,0.40768488241447426,0.6761966336222393,0.09690692395005675
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Hindawi Publishing Corporation,0.8034609112069315,0.8770145461019341,0.47766884531590414
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Hindawi Publishing Corporation,0.36765445553156306,0.6364917309924226,0.10034535686876439
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,IOS Press,0.4466551986070397,0.6881085411837236,0.13890465380249717
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,IOS Press,0.8177608735773666,0.9170178183221926,0.6096385542168675
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,IOS Press,0.4249941799245791,0.6720154980862757,0.12588572290064828
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Other,0.5677866074217227,0.7556354490705475,0.26135073779795687
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Other,0.6541681382896395,0.8019429529697717,0.40566689702833447
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Other,0.5439339316883482,0.740085573223981,0.2292447777182646
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Public Library of Science,0.5087776396527562,0.704764553525597,0.21892735527809307
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Public Library of Science,0.6520940190773818,0.827444318194354,0.4251012145748988
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Public Library of Science,0.5038868942052142,0.6986742181330656,0.21276282899573593
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,SAGE Publishing,0.5339345430628392,0.7400507653039429,0.2138195232690125
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,SAGE Publishing,0.8416335542298528,0.9175382333349357,0.7040358744394619
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,SAGE Publishing,0.5266288515228572,0.7322354153839982,0.20483516483516484
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Spandidos Publishing,0.43113445621363083,0.6335421120916577,0.14614074914869465
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Spandidos Publishing,0.6596308277668097,0.8191129351621845,0.3829787234042553
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Spandidos Publishing,0.42566786701304893,0.6305977636106943,0.14029245692775444
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Springer Science+Business Media,0.5676411606131979,0.7612945099103706,0.2329738933030647
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Springer Science+Business Media,0.7663616667150173,0.8662607887856504,0.5771812080536913
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Springer Science+Business Media,0.5379243707494856,0.7462103837670202,0.2013324666883328
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Taylor & Francis,0.45539816487523355,0.6903184351887331,0.139472190692395
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Taylor & Francis,0.7634949292373103,0.8516472734408501,0.600896860986547
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Taylor & Francis,0.4483799399079843,0.6834806607352095,0.13377289377289378
+abstracts,abstracts_modernbert,True,43,local_mlp,pooled,Wiley,0.5677578079537738,0.756380558953182,0.264472190692395
+abstracts,abstracts_modernbert,True,43,local_mlp,own_silo,Wiley,0.8601196277626654,0.9109915658848293,0.6748681898066784
+abstracts,abstracts_modernbert,True,43,local_mlp,out_silo,Wiley,0.5446233378063997,0.7419508356806125,0.2461799660441426
+abstracts,abstracts_modernbert,True,43,fl_fedavg,pooled,ALL,0.6691921005602032,0.818992336937483,0.37045970488081725
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Elsevier BV,0.5594599614077576,0.7472787302222,0.2744539411206078
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Hindawi Publishing Corporation,0.7136887416891544,0.8317321670323364,0.32625272331154687
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,IOS Press,0.679573623358668,0.861234482618501,0.35180722891566263
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Other,0.6214744556803888,0.7907241670353168,0.4008293020041465
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Public Library of Science,0.6416709937237549,0.818519785105186,0.41295546558704455
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,SAGE Publishing,0.7876471715173231,0.9019118384276777,0.6143497757847534
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Spandidos Publishing,0.532947417111686,0.8002844079634229,0.22695035460992907
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Springer Science+Business Media,0.7395396948963427,0.8551442798797426,0.5324384787472036
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Taylor & Francis,0.6795823964579599,0.8403020546402018,0.4080717488789238
+abstracts,abstracts_modernbert,True,43,fl_fedavg,own_silo,Wiley,0.8640051075735998,0.911284718703584,0.6590509666080844
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Elsevier BV,0.6362923812855176,0.7776288715616202,0.39886039886039887
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Hindawi Publishing Corporation,0.8006412086910395,0.8767894446301612,0.4613289760348584
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,IOS Press,0.8207676840961005,0.9198805339401451,0.5807228915662651
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Other,0.6581887732564922,0.8067501745579236,0.42709053213545267
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Public Library of Science,0.7271961073388167,0.8529520458030425,0.46558704453441296
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,SAGE Publishing,0.8112379742317108,0.9143930393698625,0.6547085201793722
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Spandidos Publishing,0.6389006150398511,0.8365194225438313,0.36879432624113473
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Springer Science+Business Media,0.7813201319775455,0.8798237688038305,0.5749440715883669
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Taylor & Francis,0.7902571557444863,0.8896221409830585,0.5650224215246636
+abstracts,abstracts_modernbert,True,43,fl_fedavg_ft10,own_silo,Wiley,0.8887759191710939,0.9275369662085279,0.718804920913884
