@@ -66,6 +66,10 @@ All paths are relative to the repository root; data go to `data_v2/`, results to
 
 Reported numbers exclude smoke-test runs (`*_smoke`) and anything under `results_v2/_stale`.
 
+**Results.** All result files of the paper (CSV/JSON/TXT, 4.4 MB) are in `results_v2/`, so
+`p1_paper_tables.py` and `p2_paper_figures.py` run without re-training. Per-article test scores (`*.npz`) and
+LoRA adapters (`*.pt`) are not included (size); the deployment, topic and membership-inference analyses need them.
+
 ## Data
 
 The FedRetract dataset (article identifiers, labels, cleaned text where licences allow, splits, embeddings and a

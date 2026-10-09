@@ -1,0 +1,401 @@
+seed,model,reason,n,recall@5%fpr
+42,central_xgb,authorship/ethics,265,0.07547169811320754
+42,central_xgb,data/results errors,595,0.08739495798319327
+42,central_xgb,fabrication/falsification,104,0.04807692307692308
+42,central_xgb,fake peer review,1753,0.36965202509982886
+42,central_xgb,image issues,1212,0.0891089108910891
+42,central_xgb,other/unspecified,281,0.05693950177935943
+42,central_xgb,paper mill,2031,0.3466272772033481
+42,central_xgb,plagiarism/duplication,807,0.057001239157372985
+42,central_mlp,authorship/ethics,265,0.07547169811320754
+42,central_mlp,data/results errors,595,0.07899159663865546
+42,central_mlp,fabrication/falsification,104,0.019230769230769232
+42,central_mlp,fake peer review,1753,0.3787792355961209
+42,central_mlp,image issues,1212,0.06683168316831684
+42,central_mlp,other/unspecified,281,0.08185053380782918
+42,central_mlp,paper mill,2031,0.362383062530773
+42,central_mlp,plagiarism/duplication,807,0.042131350681536554
+42,fl_fedavg,authorship/ethics,265,0.09811320754716982
+42,fl_fedavg,data/results errors,595,0.10084033613445378
+42,fl_fedavg,fabrication/falsification,104,0.019230769230769232
+42,fl_fedavg,fake peer review,1753,0.3354249857387336
+42,fl_fedavg,image issues,1212,0.07508250825082509
+42,fl_fedavg,other/unspecified,281,0.07829181494661921
+42,fl_fedavg,paper mill,2031,0.27031019202363366
+42,fl_fedavg,plagiarism/duplication,807,0.06319702602230483
+42,fl_xgb_cyclic,authorship/ethics,265,0.09433962264150944
+42,fl_xgb_cyclic,data/results errors,595,0.0773109243697479
+42,fl_xgb_cyclic,fabrication/falsification,104,0.04807692307692308
+42,fl_xgb_cyclic,fake peer review,1753,0.19224187107815174
+42,fl_xgb_cyclic,image issues,1212,0.05033003300330033
+42,fl_xgb_cyclic,other/unspecified,281,0.09252669039145907
+42,fl_xgb_cyclic,paper mill,2031,0.18365337272279667
+42,fl_xgb_cyclic,plagiarism/duplication,807,0.0768277571251549
+42,central_logreg,authorship/ethics,265,0.03018867924528302
+42,central_logreg,data/results errors,595,0.03865546218487395
+42,central_logreg,fabrication/falsification,104,0.019230769230769232
+42,central_logreg,fake peer review,1753,0.15231032515687393
+42,central_logreg,image issues,1212,0.0165016501650165
+42,central_logreg,other/unspecified,281,0.017793594306049824
+42,central_logreg,paper mill,2031,0.21762678483505662
+42,central_logreg,plagiarism/duplication,807,0.022304832713754646
+43,central_xgb,authorship/ethics,277,0.10108303249097472
+43,central_xgb,data/results errors,633,0.07740916271721959
+43,central_xgb,fabrication/falsification,126,0.047619047619047616
+43,central_xgb,fake peer review,1805,0.3429362880886427
+43,central_xgb,image issues,1171,0.07344150298889837
+43,central_xgb,other/unspecified,270,0.1
+43,central_xgb,paper mill,2016,0.2961309523809524
+43,central_xgb,plagiarism/duplication,750,0.05733333333333333
+43,central_mlp,authorship/ethics,277,0.07581227436823104
+43,central_mlp,data/results errors,633,0.07898894154818326
+43,central_mlp,fabrication/falsification,126,0.007936507936507936
+43,central_mlp,fake peer review,1805,0.37562326869806095
+43,central_mlp,image issues,1171,0.05550811272416738
+43,central_mlp,other/unspecified,270,0.06296296296296296
+43,central_mlp,paper mill,2016,0.3100198412698413
+43,central_mlp,plagiarism/duplication,750,0.044
+43,fl_fedavg,authorship/ethics,277,0.09747292418772563
+43,fl_fedavg,data/results errors,633,0.08846761453396525
+43,fl_fedavg,fabrication/falsification,126,0.023809523809523808
+43,fl_fedavg,fake peer review,1805,0.32022160664819943
+43,fl_fedavg,image issues,1171,0.10247651579846286
+43,fl_fedavg,other/unspecified,270,0.07037037037037037
+43,fl_fedavg,paper mill,2016,0.2619047619047619
+43,fl_fedavg,plagiarism/duplication,750,0.07066666666666667
+43,fl_xgb_cyclic,authorship/ethics,277,0.05054151624548736
+43,fl_xgb_cyclic,data/results errors,633,0.08056872037914692
+43,fl_xgb_cyclic,fabrication/falsification,126,0.015873015873015872
+43,fl_xgb_cyclic,fake peer review,1805,0.23545706371191136
+43,fl_xgb_cyclic,image issues,1171,0.05721605465414176
+43,fl_xgb_cyclic,other/unspecified,270,0.07407407407407407
+43,fl_xgb_cyclic,paper mill,2016,0.11805555555555555
+43,fl_xgb_cyclic,plagiarism/duplication,750,0.07866666666666666
+43,central_logreg,authorship/ethics,277,0.04332129963898917
+43,central_logreg,data/results errors,633,0.03949447077409163
+43,central_logreg,fabrication/falsification,126,0.007936507936507936
+43,central_logreg,fake peer review,1805,0.17174515235457063
+43,central_logreg,image issues,1171,0.026473099914602904
+43,central_logreg,other/unspecified,270,0.025925925925925925
+43,central_logreg,paper mill,2016,0.22073412698412698
+43,central_logreg,plagiarism/duplication,750,0.017333333333333333
+44,central_xgb,authorship/ethics,274,0.08759124087591241
+44,central_xgb,data/results errors,638,0.09404388714733543
+44,central_xgb,fabrication/falsification,116,0.08620689655172414
+44,central_xgb,fake peer review,1822,0.35071350164654225
+44,central_xgb,image issues,1219,0.09269893355209188
+44,central_xgb,other/unspecified,289,0.08996539792387544
+44,central_xgb,paper mill,1966,0.36876907426246186
+44,central_xgb,plagiarism/duplication,724,0.062154696132596686
+44,central_mlp,authorship/ethics,274,0.06204379562043796
+44,central_mlp,data/results errors,638,0.06269592476489028
+44,central_mlp,fabrication/falsification,116,0.017241379310344827
+44,central_mlp,fake peer review,1822,0.362788144895719
+44,central_mlp,image issues,1219,0.05906480721903199
+44,central_mlp,other/unspecified,289,0.06228373702422145
+44,central_mlp,paper mill,1966,0.3733468972533062
+44,central_mlp,plagiarism/duplication,724,0.06629834254143646
+44,fl_fedavg,authorship/ethics,274,0.08759124087591241
+44,fl_fedavg,data/results errors,638,0.07836990595611286
+44,fl_fedavg,fabrication/falsification,116,0.034482758620689655
+44,fl_fedavg,fake peer review,1822,0.3199780461031833
+44,fl_fedavg,image issues,1219,0.08531583264971287
+44,fl_fedavg,other/unspecified,289,0.10380622837370242
+44,fl_fedavg,paper mill,1966,0.28179043743641913
+44,fl_fedavg,plagiarism/duplication,724,0.10082872928176796
+44,fl_xgb_cyclic,authorship/ethics,274,0.08759124087591241
+44,fl_xgb_cyclic,data/results errors,638,0.0877742946708464
+44,fl_xgb_cyclic,fabrication/falsification,116,0.04310344827586207
+44,fl_xgb_cyclic,fake peer review,1822,0.1597145993413831
+44,fl_xgb_cyclic,image issues,1219,0.054142739950779326
+44,fl_xgb_cyclic,other/unspecified,289,0.07612456747404844
+44,fl_xgb_cyclic,paper mill,1966,0.10630722278738555
+44,fl_xgb_cyclic,plagiarism/duplication,724,0.08977900552486189
+44,central_logreg,authorship/ethics,274,0.05474452554744526
+44,central_logreg,data/results errors,638,0.03761755485893417
+44,central_logreg,fabrication/falsification,116,0.02586206896551724
+44,central_logreg,fake peer review,1822,0.15806805708013172
+44,central_logreg,image issues,1219,0.022149302707136997
+44,central_logreg,other/unspecified,289,0.02422145328719723
+44,central_logreg,paper mill,1966,0.2293997965412004
+44,central_logreg,plagiarism/duplication,724,0.019337016574585635
+45,central_xgb,authorship/ethics,296,0.06756756756756757
+45,central_xgb,data/results errors,618,0.08414239482200647
+45,central_xgb,fabrication/falsification,128,0.0390625
+45,central_xgb,fake peer review,1723,0.3308183401044689
+45,central_xgb,image issues,1126,0.09680284191829484
+45,central_xgb,other/unspecified,297,0.09427609427609428
+45,central_xgb,paper mill,2107,0.3388704318936877
+45,central_xgb,plagiarism/duplication,753,0.05444887118193891
+45,central_mlp,authorship/ethics,296,0.057432432432432436
+45,central_mlp,data/results errors,618,0.08414239482200647
+45,central_mlp,fabrication/falsification,128,0.015625
+45,central_mlp,fake peer review,1723,0.3418456181079512
+45,central_mlp,image issues,1126,0.05150976909413854
+45,central_mlp,other/unspecified,297,0.07744107744107744
+45,central_mlp,paper mill,2107,0.3512102515424775
+45,central_mlp,plagiarism/duplication,753,0.04648074369189907
+45,fl_fedavg,authorship/ethics,296,0.05405405405405406
+45,fl_fedavg,data/results errors,618,0.08737864077669903
+45,fl_fedavg,fabrication/falsification,128,0.015625
+45,fl_fedavg,fake peer review,1723,0.2826465467208358
+45,fl_fedavg,image issues,1126,0.07726465364120781
+45,fl_fedavg,other/unspecified,297,0.08417508417508418
+45,fl_fedavg,paper mill,2107,0.27669672520170857
+45,fl_fedavg,plagiarism/duplication,753,0.08632138114209828
+45,fl_xgb_cyclic,authorship/ethics,296,0.05405405405405406
+45,fl_xgb_cyclic,data/results errors,618,0.07766990291262135
+45,fl_xgb_cyclic,fabrication/falsification,128,0.0703125
+45,fl_xgb_cyclic,fake peer review,1723,0.16308763784097505
+45,fl_xgb_cyclic,image issues,1126,0.0763765541740675
+45,fl_xgb_cyclic,other/unspecified,297,0.10437710437710437
+45,fl_xgb_cyclic,paper mill,2107,0.12387280493592787
+45,fl_xgb_cyclic,plagiarism/duplication,753,0.10225763612217796
+45,central_logreg,authorship/ethics,296,0.037162162162162164
+45,central_logreg,data/results errors,618,0.02912621359223301
+45,central_logreg,fabrication/falsification,128,0.0078125
+45,central_logreg,fake peer review,1723,0.1526407428903076
+45,central_logreg,image issues,1126,0.02575488454706927
+45,central_logreg,other/unspecified,297,0.04377104377104377
+45,central_logreg,paper mill,2107,0.21737066919791173
+45,central_logreg,plagiarism/duplication,753,0.02390438247011952
+46,central_xgb,authorship/ethics,300,0.08666666666666667
+46,central_xgb,data/results errors,608,0.10361842105263158
+46,central_xgb,fabrication/falsification,121,0.09917355371900827
+46,central_xgb,fake peer review,1851,0.33225283630470015
+46,central_xgb,image issues,1169,0.0855431993156544
+46,central_xgb,other/unspecified,281,0.06761565836298933
+46,central_xgb,paper mill,2007,0.33134030891878424
+46,central_xgb,plagiarism/duplication,711,0.046413502109704644
+46,central_mlp,authorship/ethics,300,0.07333333333333333
+46,central_mlp,data/results errors,608,0.08881578947368421
+46,central_mlp,fabrication/falsification,121,0.05785123966942149
+46,central_mlp,fake peer review,1851,0.3641274986493787
+46,central_mlp,image issues,1169,0.08982035928143713
+46,central_mlp,other/unspecified,281,0.0711743772241993
+46,central_mlp,paper mill,2007,0.351270553064275
+46,central_mlp,plagiarism/duplication,711,0.04781997187060478
+46,fl_fedavg,authorship/ethics,300,0.09333333333333334
+46,fl_fedavg,data/results errors,608,0.09868421052631579
+46,fl_fedavg,fabrication/falsification,121,0.06611570247933884
+46,fl_fedavg,fake peer review,1851,0.3295515937331172
+46,fl_fedavg,image issues,1169,0.11633875106929
+46,fl_fedavg,other/unspecified,281,0.08185053380782918
+46,fl_fedavg,paper mill,2007,0.2650722471350274
+46,fl_fedavg,plagiarism/duplication,711,0.06751054852320675
+46,fl_xgb_cyclic,authorship/ethics,300,0.08
+46,fl_xgb_cyclic,data/results errors,608,0.08717105263157894
+46,fl_xgb_cyclic,fabrication/falsification,121,0.04132231404958678
+46,fl_xgb_cyclic,fake peer review,1851,0.19070772555375473
+46,fl_xgb_cyclic,image issues,1169,0.05132591958939264
+46,fl_xgb_cyclic,other/unspecified,281,0.10676156583629894
+46,fl_xgb_cyclic,paper mill,2007,0.1639262580966617
+46,fl_xgb_cyclic,plagiarism/duplication,711,0.07735583684950774
+46,central_logreg,authorship/ethics,300,0.04666666666666667
+46,central_logreg,data/results errors,608,0.044407894736842105
+46,central_logreg,fabrication/falsification,121,0.024793388429752067
+46,central_logreg,fake peer review,1851,0.15937331172339275
+46,central_logreg,image issues,1169,0.015397775876817793
+46,central_logreg,other/unspecified,281,0.03202846975088968
+46,central_logreg,paper mill,2007,0.2207274539113104
+46,central_logreg,plagiarism/duplication,711,0.03938115330520394
+47,central_xgb,authorship/ethics,312,0.07692307692307693
+47,central_xgb,data/results errors,619,0.10016155088852989
+47,central_xgb,fabrication/falsification,118,0.1016949152542373
+47,central_xgb,fake peer review,1780,0.3792134831460674
+47,central_xgb,image issues,1221,0.09746109746109746
+47,central_xgb,other/unspecified,268,0.08582089552238806
+47,central_xgb,paper mill,2020,0.3569306930693069
+47,central_xgb,plagiarism/duplication,710,0.04647887323943662
+47,central_mlp,authorship/ethics,312,0.04807692307692308
+47,central_mlp,data/results errors,619,0.08562197092084006
+47,central_mlp,fabrication/falsification,118,0.0423728813559322
+47,central_mlp,fake peer review,1780,0.3814606741573034
+47,central_mlp,image issues,1221,0.08845208845208845
+47,central_mlp,other/unspecified,268,0.1044776119402985
+47,central_mlp,paper mill,2020,0.33663366336633666
+47,central_mlp,plagiarism/duplication,710,0.04647887323943662
+47,fl_fedavg,authorship/ethics,312,0.08974358974358974
+47,fl_fedavg,data/results errors,619,0.09693053311793215
+47,fl_fedavg,fabrication/falsification,118,0.059322033898305086
+47,fl_fedavg,fake peer review,1780,0.298314606741573
+47,fl_fedavg,image issues,1221,0.14332514332514332
+47,fl_fedavg,other/unspecified,268,0.06343283582089553
+47,fl_fedavg,paper mill,2020,0.2871287128712871
+47,fl_fedavg,plagiarism/duplication,710,0.061971830985915494
+47,fl_xgb_cyclic,authorship/ethics,312,0.08012820512820513
+47,fl_xgb_cyclic,data/results errors,619,0.07592891760904685
+47,fl_xgb_cyclic,fabrication/falsification,118,0.06779661016949153
+47,fl_xgb_cyclic,fake peer review,1780,0.2050561797752809
+47,fl_xgb_cyclic,image issues,1221,0.07698607698607698
+47,fl_xgb_cyclic,other/unspecified,268,0.07835820895522388
+47,fl_xgb_cyclic,paper mill,2020,0.1608910891089109
+47,fl_xgb_cyclic,plagiarism/duplication,710,0.06338028169014084
+47,central_logreg,authorship/ethics,312,0.05128205128205128
+47,central_logreg,data/results errors,619,0.050080775444264945
+47,central_logreg,fabrication/falsification,118,0.025423728813559324
+47,central_logreg,fake peer review,1780,0.1707865168539326
+47,central_logreg,image issues,1221,0.021294021294021293
+47,central_logreg,other/unspecified,268,0.029850746268656716
+47,central_logreg,paper mill,2020,0.21782178217821782
+47,central_logreg,plagiarism/duplication,710,0.02112676056338028
+48,central_xgb,authorship/ethics,272,0.08088235294117647
+48,central_xgb,data/results errors,607,0.09555189456342669
+48,central_xgb,fabrication/falsification,122,0.07377049180327869
+48,central_xgb,fake peer review,1778,0.35376827896512936
+48,central_xgb,image issues,1217,0.08627773212818406
+48,central_xgb,other/unspecified,258,0.09689922480620156
+48,central_xgb,paper mill,2002,0.32667332667332666
+48,central_xgb,plagiarism/duplication,792,0.050505050505050504
+48,central_mlp,authorship/ethics,272,0.051470588235294115
+48,central_mlp,data/results errors,607,0.09719934102141681
+48,central_mlp,fabrication/falsification,122,0.01639344262295082
+48,central_mlp,fake peer review,1778,0.3796400449943757
+48,central_mlp,image issues,1217,0.06820049301561217
+48,central_mlp,other/unspecified,258,0.08527131782945736
+48,central_mlp,paper mill,2002,0.3256743256743257
+48,central_mlp,plagiarism/duplication,792,0.039141414141414144
+48,fl_fedavg,authorship/ethics,272,0.08455882352941177
+48,fl_fedavg,data/results errors,607,0.10378912685337727
+48,fl_fedavg,fabrication/falsification,122,0.0
+48,fl_fedavg,fake peer review,1778,0.2857142857142857
+48,fl_fedavg,image issues,1217,0.11750205423171733
+48,fl_fedavg,other/unspecified,258,0.07751937984496124
+48,fl_fedavg,paper mill,2002,0.27322677322677325
+48,fl_fedavg,plagiarism/duplication,792,0.06439393939393939
+48,fl_xgb_cyclic,authorship/ethics,272,0.0625
+48,fl_xgb_cyclic,data/results errors,607,0.10378912685337727
+48,fl_xgb_cyclic,fabrication/falsification,122,0.07377049180327869
+48,fl_xgb_cyclic,fake peer review,1778,0.18785151856017998
+48,fl_xgb_cyclic,image issues,1217,0.07888249794576828
+48,fl_xgb_cyclic,other/unspecified,258,0.06976744186046512
+48,fl_xgb_cyclic,paper mill,2002,0.13886113886113885
+48,fl_xgb_cyclic,plagiarism/duplication,792,0.08964646464646464
+48,central_logreg,authorship/ethics,272,0.04411764705882353
+48,central_logreg,data/results errors,607,0.036243822075782535
+48,central_logreg,fabrication/falsification,122,0.01639344262295082
+48,central_logreg,fake peer review,1778,0.156355455568054
+48,central_logreg,image issues,1217,0.02218570254724733
+48,central_logreg,other/unspecified,258,0.027131782945736434
+48,central_logreg,paper mill,2002,0.22627372627372627
+48,central_logreg,plagiarism/duplication,792,0.03282828282828283
+49,central_xgb,authorship/ethics,287,0.08710801393728224
+49,central_xgb,data/results errors,613,0.08319738988580751
+49,central_xgb,fabrication/falsification,108,0.1111111111111111
+49,central_xgb,fake peer review,1802,0.35349611542730297
+49,central_xgb,image issues,1201,0.08492922564529559
+49,central_xgb,other/unspecified,288,0.0763888888888889
+49,central_xgb,paper mill,1976,0.3395748987854251
+49,central_xgb,plagiarism/duplication,773,0.047865459249676584
+49,central_mlp,authorship/ethics,287,0.06968641114982578
+49,central_mlp,data/results errors,613,0.0766721044045677
+49,central_mlp,fabrication/falsification,108,0.07407407407407407
+49,central_mlp,fake peer review,1802,0.37569367369589346
+49,central_mlp,image issues,1201,0.07077435470441298
+49,central_mlp,other/unspecified,288,0.07291666666666667
+49,central_mlp,paper mill,1976,0.34463562753036436
+49,central_mlp,plagiarism/duplication,773,0.040103492884864166
+49,fl_fedavg,authorship/ethics,287,0.09059233449477352
+49,fl_fedavg,data/results errors,613,0.07504078303425775
+49,fl_fedavg,fabrication/falsification,108,0.07407407407407407
+49,fl_fedavg,fake peer review,1802,0.31076581576026635
+49,fl_fedavg,image issues,1201,0.08326394671107411
+49,fl_fedavg,other/unspecified,288,0.10069444444444445
+49,fl_fedavg,paper mill,1976,0.2388663967611336
+49,fl_fedavg,plagiarism/duplication,773,0.08020698576972833
+49,fl_xgb_cyclic,authorship/ethics,287,0.05574912891986063
+49,fl_xgb_cyclic,data/results errors,613,0.06851549755301795
+49,fl_xgb_cyclic,fabrication/falsification,108,0.046296296296296294
+49,fl_xgb_cyclic,fake peer review,1802,0.21143174250832408
+49,fl_xgb_cyclic,image issues,1201,0.06244796003330558
+49,fl_xgb_cyclic,other/unspecified,288,0.07291666666666667
+49,fl_xgb_cyclic,paper mill,1976,0.14271255060728744
+49,fl_xgb_cyclic,plagiarism/duplication,773,0.08020698576972833
+49,central_logreg,authorship/ethics,287,0.04529616724738676
+49,central_logreg,data/results errors,613,0.03262642740619902
+49,central_logreg,fabrication/falsification,108,0.009259259259259259
+49,central_logreg,fake peer review,1802,0.1537180910099889
+49,central_logreg,image issues,1201,0.022481265611990008
+49,central_logreg,other/unspecified,288,0.03819444444444445
+49,central_logreg,paper mill,1976,0.2236842105263158
+49,central_logreg,plagiarism/duplication,773,0.03234152652005175
+50,central_xgb,authorship/ethics,293,0.06484641638225255
+50,central_xgb,data/results errors,645,0.08837209302325581
+50,central_xgb,fabrication/falsification,122,0.10655737704918032
+50,central_xgb,fake peer review,1807,0.3420033204205866
+50,central_xgb,image issues,1207,0.07705053852526926
+50,central_xgb,other/unspecified,242,0.11570247933884298
+50,central_xgb,paper mill,2003,0.3439840239640539
+50,central_xgb,plagiarism/duplication,729,0.05761316872427984
+50,central_mlp,authorship/ethics,293,0.07508532423208192
+50,central_mlp,data/results errors,645,0.08372093023255814
+50,central_mlp,fabrication/falsification,122,0.07377049180327869
+50,central_mlp,fake peer review,1807,0.35694521306032095
+50,central_mlp,image issues,1207,0.08699254349627175
+50,central_mlp,other/unspecified,242,0.09090909090909091
+50,central_mlp,paper mill,2003,0.3349975037443834
+50,central_mlp,plagiarism/duplication,729,0.05898491083676269
+50,fl_fedavg,authorship/ethics,293,0.07508532423208192
+50,fl_fedavg,data/results errors,645,0.08217054263565891
+50,fl_fedavg,fabrication/falsification,122,0.04918032786885246
+50,fl_fedavg,fake peer review,1807,0.32484781405644714
+50,fl_fedavg,image issues,1207,0.06793703396851698
+50,fl_fedavg,other/unspecified,242,0.0743801652892562
+50,fl_fedavg,paper mill,2003,0.2760858711932102
+50,fl_fedavg,plagiarism/duplication,729,0.07818930041152264
+50,fl_xgb_cyclic,authorship/ethics,293,0.05802047781569966
+50,fl_xgb_cyclic,data/results errors,645,0.07286821705426356
+50,fl_xgb_cyclic,fabrication/falsification,122,0.05737704918032787
+50,fl_xgb_cyclic,fake peer review,1807,0.19203099059214168
+50,fl_xgb_cyclic,image issues,1207,0.0687655343827672
+50,fl_xgb_cyclic,other/unspecified,242,0.10330578512396695
+50,fl_xgb_cyclic,paper mill,2003,0.12281577633549676
+50,fl_xgb_cyclic,plagiarism/duplication,729,0.08367626886145405
+50,central_logreg,authorship/ethics,293,0.034129692832764506
+50,central_logreg,data/results errors,645,0.03255813953488372
+50,central_logreg,fabrication/falsification,122,0.01639344262295082
+50,central_logreg,fake peer review,1807,0.15661317100166022
+50,central_logreg,image issues,1207,0.015741507870753936
+50,central_logreg,other/unspecified,242,0.028925619834710745
+50,central_logreg,paper mill,2003,0.2236645032451323
+50,central_logreg,plagiarism/duplication,729,0.027434842249657063
+51,central_xgb,authorship/ethics,266,0.08270676691729323
+51,central_xgb,data/results errors,642,0.08878504672897196
+51,central_xgb,fabrication/falsification,100,0.04
+51,central_xgb,fake peer review,1811,0.372170071783545
+51,central_xgb,image issues,1232,0.07711038961038962
+51,central_xgb,other/unspecified,302,0.10927152317880795
+51,central_xgb,paper mill,1961,0.3258541560428353
+51,central_xgb,plagiarism/duplication,734,0.04495912806539509
+51,central_mlp,authorship/ethics,266,0.07142857142857142
+51,central_mlp,data/results errors,642,0.08566978193146417
+51,central_mlp,fabrication/falsification,100,0.04
+51,central_mlp,fake peer review,1811,0.36388735505245723
+51,central_mlp,image issues,1232,0.09334415584415584
+51,central_mlp,other/unspecified,302,0.10264900662251655
+51,central_mlp,paper mill,1961,0.3141254462009179
+51,central_mlp,plagiarism/duplication,734,0.0681198910081744
+51,fl_fedavg,authorship/ethics,266,0.09398496240601503
+51,fl_fedavg,data/results errors,642,0.09034267912772585
+51,fl_fedavg,fabrication/falsification,100,0.03
+51,fl_fedavg,fake peer review,1811,0.2959690778575373
+51,fl_fedavg,image issues,1232,0.11038961038961038
+51,fl_fedavg,other/unspecified,302,0.09602649006622517
+51,fl_fedavg,paper mill,1961,0.25242223355430904
+51,fl_fedavg,plagiarism/duplication,734,0.07084468664850137
+51,fl_xgb_cyclic,authorship/ethics,266,0.07142857142857142
+51,fl_xgb_cyclic,data/results errors,642,0.08411214953271028
+51,fl_xgb_cyclic,fabrication/falsification,100,0.04
+51,fl_xgb_cyclic,fake peer review,1811,0.20209828823854223
+51,fl_xgb_cyclic,image issues,1232,0.0625
+51,fl_xgb_cyclic,other/unspecified,302,0.08609271523178808
+51,fl_xgb_cyclic,paper mill,1961,0.11932687404385518
+51,fl_xgb_cyclic,plagiarism/duplication,734,0.08719346049046321
+51,central_logreg,authorship/ethics,266,0.05639097744360902
+51,central_logreg,data/results errors,642,0.028037383177570093
+51,central_logreg,fabrication/falsification,100,0.01
+51,central_logreg,fake peer review,1811,0.18166758696852567
+51,central_logreg,image issues,1232,0.020292207792207792
+51,central_logreg,other/unspecified,302,0.026490066225165563
+51,central_logreg,paper mill,1961,0.225395206527282
+51,central_logreg,plagiarism/duplication,734,0.01907356948228883

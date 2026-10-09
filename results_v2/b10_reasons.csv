@@ -1,0 +1,345 @@
+run,seed,model,reason,n,recall@5%fpr
+c3_lora_abstracts,42,central_lora,authorship/ethics,265,0.19245283018867926
+c3_lora_abstracts,42,central_lora,data/results errors,595,0.2218487394957983
+c3_lora_abstracts,42,central_lora,fabrication/falsification,104,0.11538461538461539
+c3_lora_abstracts,42,central_lora,fake peer review,1753,0.6332002281802624
+c3_lora_abstracts,42,central_lora,image issues,1212,0.3564356435643564
+c3_lora_abstracts,42,central_lora,other/unspecified,281,0.2491103202846975
+c3_lora_abstracts,42,central_lora,paper mill,2031,0.6671590349581487
+c3_lora_abstracts,42,central_lora,plagiarism/duplication,807,0.17100371747211895
+c3_lora_abstracts,43,central_lora,authorship/ethics,277,0.20216606498194944
+c3_lora_abstracts,43,central_lora,data/results errors,633,0.2559241706161137
+c3_lora_abstracts,43,central_lora,fabrication/falsification,126,0.21428571428571427
+c3_lora_abstracts,43,central_lora,fake peer review,1805,0.6421052631578947
+c3_lora_abstracts,43,central_lora,image issues,1171,0.4363791631084543
+c3_lora_abstracts,43,central_lora,other/unspecified,270,0.2777777777777778
+c3_lora_abstracts,43,central_lora,paper mill,2016,0.6557539682539683
+c3_lora_abstracts,43,central_lora,plagiarism/duplication,750,0.19466666666666665
+c3_lora_abstracts,44,central_lora,authorship/ethics,274,0.1897810218978102
+c3_lora_abstracts,44,central_lora,data/results errors,638,0.21316614420062696
+c3_lora_abstracts,44,central_lora,fabrication/falsification,116,0.15517241379310345
+c3_lora_abstracts,44,central_lora,fake peer review,1822,0.6437980241492866
+c3_lora_abstracts,44,central_lora,image issues,1219,0.42821985233798193
+c3_lora_abstracts,44,central_lora,other/unspecified,289,0.30103806228373703
+c3_lora_abstracts,44,central_lora,paper mill,1966,0.6810783316378434
+c3_lora_abstracts,44,central_lora,plagiarism/duplication,724,0.1850828729281768
+c3_lora_abstracts,42,fl_fedavg_lora,authorship/ethics,265,0.1471698113207547
+c3_lora_abstracts,42,fl_fedavg_lora,data/results errors,595,0.1815126050420168
+c3_lora_abstracts,42,fl_fedavg_lora,fabrication/falsification,104,0.07692307692307693
+c3_lora_abstracts,42,fl_fedavg_lora,fake peer review,1753,0.5510553337136338
+c3_lora_abstracts,42,fl_fedavg_lora,image issues,1212,0.3110561056105611
+c3_lora_abstracts,42,fl_fedavg_lora,other/unspecified,281,0.23487544483985764
+c3_lora_abstracts,42,fl_fedavg_lora,paper mill,2031,0.6139832594780896
+c3_lora_abstracts,42,fl_fedavg_lora,plagiarism/duplication,807,0.15117719950433706
+c3_lora_abstracts,42,fl_ditto_lora__personal,authorship/ethics,265,0.2830188679245283
+c3_lora_abstracts,42,fl_ditto_lora__personal,data/results errors,595,0.31596638655462184
+c3_lora_abstracts,42,fl_ditto_lora__personal,fabrication/falsification,104,0.1346153846153846
+c3_lora_abstracts,42,fl_ditto_lora__personal,fake peer review,1753,0.6697090701654307
+c3_lora_abstracts,42,fl_ditto_lora__personal,image issues,1212,0.5165016501650165
+c3_lora_abstracts,42,fl_ditto_lora__personal,other/unspecified,281,0.3238434163701068
+c3_lora_abstracts,42,fl_ditto_lora__personal,paper mill,2031,0.6420482520925652
+c3_lora_abstracts,42,fl_ditto_lora__personal,plagiarism/duplication,807,0.2218091697645601
+c3_lora_abstracts,43,fl_fedavg_lora,authorship/ethics,277,0.148014440433213
+c3_lora_abstracts,43,fl_fedavg_lora,data/results errors,633,0.18009478672985782
+c3_lora_abstracts,43,fl_fedavg_lora,fabrication/falsification,126,0.03968253968253968
+c3_lora_abstracts,43,fl_fedavg_lora,fake peer review,1805,0.6011080332409973
+c3_lora_abstracts,43,fl_fedavg_lora,image issues,1171,0.30572160546541416
+c3_lora_abstracts,43,fl_fedavg_lora,other/unspecified,270,0.17777777777777778
+c3_lora_abstracts,43,fl_fedavg_lora,paper mill,2016,0.6473214285714286
+c3_lora_abstracts,43,fl_fedavg_lora,plagiarism/duplication,750,0.152
+c3_lora_abstracts,43,fl_ditto_lora__personal,authorship/ethics,277,0.2527075812274368
+c3_lora_abstracts,43,fl_ditto_lora__personal,data/results errors,633,0.32701421800947866
+c3_lora_abstracts,43,fl_ditto_lora__personal,fabrication/falsification,126,0.19047619047619047
+c3_lora_abstracts,43,fl_ditto_lora__personal,fake peer review,1805,0.6742382271468144
+c3_lora_abstracts,43,fl_ditto_lora__personal,image issues,1171,0.5303159692570453
+c3_lora_abstracts,43,fl_ditto_lora__personal,other/unspecified,270,0.32222222222222224
+c3_lora_abstracts,43,fl_ditto_lora__personal,paper mill,2016,0.6319444444444444
+c3_lora_abstracts,43,fl_ditto_lora__personal,plagiarism/duplication,750,0.23066666666666666
+c3_lora_abstracts,44,fl_fedavg_lora,authorship/ethics,274,0.14963503649635038
+c3_lora_abstracts,44,fl_fedavg_lora,data/results errors,638,0.18495297805642633
+c3_lora_abstracts,44,fl_fedavg_lora,fabrication/falsification,116,0.05172413793103448
+c3_lora_abstracts,44,fl_fedavg_lora,fake peer review,1822,0.5713501646542262
+c3_lora_abstracts,44,fl_fedavg_lora,image issues,1219,0.3223954060705496
+c3_lora_abstracts,44,fl_fedavg_lora,other/unspecified,289,0.27335640138408307
+c3_lora_abstracts,44,fl_fedavg_lora,paper mill,1966,0.6632756866734486
+c3_lora_abstracts,44,fl_fedavg_lora,plagiarism/duplication,724,0.17403314917127072
+c3_lora_abstracts,44,fl_ditto_lora__personal,authorship/ethics,274,0.25547445255474455
+c3_lora_abstracts,44,fl_ditto_lora__personal,data/results errors,638,0.28213166144200624
+c3_lora_abstracts,44,fl_ditto_lora__personal,fabrication/falsification,116,0.14655172413793102
+c3_lora_abstracts,44,fl_ditto_lora__personal,fake peer review,1822,0.676728869374314
+c3_lora_abstracts,44,fl_ditto_lora__personal,image issues,1219,0.5061525840853158
+c3_lora_abstracts,44,fl_ditto_lora__personal,other/unspecified,289,0.328719723183391
+c3_lora_abstracts,44,fl_ditto_lora__personal,paper mill,1966,0.6658189216683622
+c3_lora_abstracts,44,fl_ditto_lora__personal,plagiarism/duplication,724,0.23895027624309392
+c3_lora_abstracts,42,fl_fedavg_lora,authorship/ethics,265,0.15471698113207547
+c3_lora_abstracts,42,fl_fedavg_lora,data/results errors,595,0.18823529411764706
+c3_lora_abstracts,42,fl_fedavg_lora,fabrication/falsification,104,0.04807692307692308
+c3_lora_abstracts,42,fl_fedavg_lora,fake peer review,1753,0.5704506560182544
+c3_lora_abstracts,42,fl_fedavg_lora,image issues,1212,0.3110561056105611
+c3_lora_abstracts,42,fl_fedavg_lora,other/unspecified,281,0.2277580071174377
+c3_lora_abstracts,42,fl_fedavg_lora,paper mill,2031,0.6262924667651403
+c3_lora_abstracts,42,fl_fedavg_lora,plagiarism/duplication,807,0.15489467162329615
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,authorship/ethics,265,0.3132075471698113
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,data/results errors,595,0.3411764705882353
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,fabrication/falsification,104,0.3076923076923077
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,fake peer review,1753,0.6645750142612664
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,image issues,1212,0.5338283828382838
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,other/unspecified,281,0.3416370106761566
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,paper mill,2031,0.6494337764647957
+c3_lora_abstracts,42,fl_fedavg_lora_ft__personal,plagiarism/duplication,807,0.23667905824039653
+c3_lora_abstracts,43,fl_fedavg_lora,authorship/ethics,277,0.1624548736462094
+c3_lora_abstracts,43,fl_fedavg_lora,data/results errors,633,0.1990521327014218
+c3_lora_abstracts,43,fl_fedavg_lora,fabrication/falsification,126,0.03968253968253968
+c3_lora_abstracts,43,fl_fedavg_lora,fake peer review,1805,0.590027700831025
+c3_lora_abstracts,43,fl_fedavg_lora,image issues,1171,0.3151152860802733
+c3_lora_abstracts,43,fl_fedavg_lora,other/unspecified,270,0.22962962962962963
+c3_lora_abstracts,43,fl_fedavg_lora,paper mill,2016,0.6369047619047619
+c3_lora_abstracts,43,fl_fedavg_lora,plagiarism/duplication,750,0.15866666666666668
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,authorship/ethics,277,0.26353790613718414
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,data/results errors,633,0.334913112164297
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,fabrication/falsification,126,0.2698412698412698
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,fake peer review,1805,0.710803324099723
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,image issues,1171,0.5004269854824936
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,other/unspecified,270,0.32592592592592595
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,paper mill,2016,0.6666666666666666
+c3_lora_abstracts,43,fl_fedavg_lora_ft__personal,plagiarism/duplication,750,0.24
+c3_lora_abstracts,44,fl_fedavg_lora,authorship/ethics,274,0.145985401459854
+c3_lora_abstracts,44,fl_fedavg_lora,data/results errors,638,0.1833855799373041
+c3_lora_abstracts,44,fl_fedavg_lora,fabrication/falsification,116,0.05172413793103448
+c3_lora_abstracts,44,fl_fedavg_lora,fake peer review,1822,0.570801317233809
+c3_lora_abstracts,44,fl_fedavg_lora,image issues,1219,0.31419196062346183
+c3_lora_abstracts,44,fl_fedavg_lora,other/unspecified,289,0.27335640138408307
+c3_lora_abstracts,44,fl_fedavg_lora,paper mill,1966,0.6546286876907427
+c3_lora_abstracts,44,fl_fedavg_lora,plagiarism/duplication,724,0.17403314917127072
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,authorship/ethics,274,0.2737226277372263
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,data/results errors,638,0.31191222570532917
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,fabrication/falsification,116,0.28448275862068967
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,fake peer review,1822,0.6805708013172338
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,image issues,1219,0.5110746513535686
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,other/unspecified,289,0.3737024221453287
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,paper mill,1966,0.6998982706002035
+c3_lora_abstracts,44,fl_fedavg_lora_ft__personal,plagiarism/duplication,724,0.24447513812154695
+c3_lora_abstracts,42,fl_fedper_lora__personal,authorship/ethics,265,0.23018867924528302
+c3_lora_abstracts,42,fl_fedper_lora__personal,data/results errors,595,0.24369747899159663
+c3_lora_abstracts,42,fl_fedper_lora__personal,fabrication/falsification,104,0.08653846153846154
+c3_lora_abstracts,42,fl_fedper_lora__personal,fake peer review,1753,0.6754135767256132
+c3_lora_abstracts,42,fl_fedper_lora__personal,image issues,1212,0.44471947194719474
+c3_lora_abstracts,42,fl_fedper_lora__personal,other/unspecified,281,0.2846975088967972
+c3_lora_abstracts,42,fl_fedper_lora__personal,paper mill,2031,0.6642048252092565
+c3_lora_abstracts,42,fl_fedper_lora__personal,plagiarism/duplication,807,0.20074349442379183
+c3_lora_abstracts,43,fl_fedper_lora__personal,authorship/ethics,277,0.21660649819494585
+c3_lora_abstracts,43,fl_fedper_lora__personal,data/results errors,633,0.2859399684044234
+c3_lora_abstracts,43,fl_fedper_lora__personal,fabrication/falsification,126,0.1111111111111111
+c3_lora_abstracts,43,fl_fedper_lora__personal,fake peer review,1805,0.6781163434903047
+c3_lora_abstracts,43,fl_fedper_lora__personal,image issues,1171,0.4713919726729291
+c3_lora_abstracts,43,fl_fedper_lora__personal,other/unspecified,270,0.2777777777777778
+c3_lora_abstracts,43,fl_fedper_lora__personal,paper mill,2016,0.6448412698412699
+c3_lora_abstracts,43,fl_fedper_lora__personal,plagiarism/duplication,750,0.2
+c3_lora_abstracts,44,fl_fedper_lora__personal,authorship/ethics,274,0.23722627737226276
+c3_lora_abstracts,44,fl_fedper_lora__personal,data/results errors,638,0.2445141065830721
+c3_lora_abstracts,44,fl_fedper_lora__personal,fabrication/falsification,116,0.15517241379310345
+c3_lora_abstracts,44,fl_fedper_lora__personal,fake peer review,1822,0.6668496158068057
+c3_lora_abstracts,44,fl_fedper_lora__personal,image issues,1219,0.4831829368334701
+c3_lora_abstracts,44,fl_fedper_lora__personal,other/unspecified,289,0.3217993079584775
+c3_lora_abstracts,44,fl_fedper_lora__personal,paper mill,1966,0.6576805696846388
+c3_lora_abstracts,44,fl_fedper_lora__personal,plagiarism/duplication,724,0.21961325966850828
+c3_lora_abstracts,42,local_lora__personal,authorship/ethics,265,0.28679245283018867
+c3_lora_abstracts,42,local_lora__personal,data/results errors,595,0.2739495798319328
+c3_lora_abstracts,42,local_lora__personal,fabrication/falsification,104,0.25961538461538464
+c3_lora_abstracts,42,local_lora__personal,fake peer review,1753,0.6668568168853394
+c3_lora_abstracts,42,local_lora__personal,image issues,1212,0.5165016501650165
+c3_lora_abstracts,42,local_lora__personal,other/unspecified,281,0.3096085409252669
+c3_lora_abstracts,42,local_lora__personal,paper mill,2031,0.637616937469227
+c3_lora_abstracts,42,local_lora__personal,plagiarism/duplication,807,0.2094175960346964
+c3_lora_abstracts,43,local_lora__personal,authorship/ethics,277,0.2888086642599278
+c3_lora_abstracts,43,local_lora__personal,data/results errors,633,0.325434439178515
+c3_lora_abstracts,43,local_lora__personal,fabrication/falsification,126,0.30158730158730157
+c3_lora_abstracts,43,local_lora__personal,fake peer review,1805,0.6742382271468144
+c3_lora_abstracts,43,local_lora__personal,image issues,1171,0.5286080273270709
+c3_lora_abstracts,43,local_lora__personal,other/unspecified,270,0.32222222222222224
+c3_lora_abstracts,43,local_lora__personal,paper mill,2016,0.6200396825396826
+c3_lora_abstracts,43,local_lora__personal,plagiarism/duplication,750,0.21333333333333335
+c3_lora_abstracts,44,local_lora__personal,authorship/ethics,274,0.2518248175182482
+c3_lora_abstracts,44,local_lora__personal,data/results errors,638,0.30094043887147337
+c3_lora_abstracts,44,local_lora__personal,fabrication/falsification,116,0.3017241379310345
+c3_lora_abstracts,44,local_lora__personal,fake peer review,1822,0.6597145993413831
+c3_lora_abstracts,44,local_lora__personal,image issues,1219,0.5012305168170632
+c3_lora_abstracts,44,local_lora__personal,other/unspecified,289,0.356401384083045
+c3_lora_abstracts,44,local_lora__personal,paper mill,1966,0.6663275686673449
+c3_lora_abstracts,44,local_lora__personal,plagiarism/duplication,724,0.212707182320442
+c3_lora_abstracts_modernbert-large,42,central_lora,authorship/ethics,265,0.2188679245283019
+c3_lora_abstracts_modernbert-large,42,central_lora,data/results errors,595,0.25546218487394956
+c3_lora_abstracts_modernbert-large,42,central_lora,fabrication/falsification,104,0.2403846153846154
+c3_lora_abstracts_modernbert-large,42,central_lora,fake peer review,1753,0.6634341129492299
+c3_lora_abstracts_modernbert-large,42,central_lora,image issues,1212,0.37293729372937295
+c3_lora_abstracts_modernbert-large,42,central_lora,other/unspecified,281,0.3096085409252669
+c3_lora_abstracts_modernbert-large,42,central_lora,paper mill,2031,0.6843919251600197
+c3_lora_abstracts_modernbert-large,42,central_lora,plagiarism/duplication,807,0.17472118959107807
+c3_lora_abstracts_modernbert-large,43,central_lora,authorship/ethics,277,0.21299638989169675
+c3_lora_abstracts_modernbert-large,43,central_lora,data/results errors,633,0.25118483412322273
+c3_lora_abstracts_modernbert-large,43,central_lora,fabrication/falsification,126,0.15873015873015872
+c3_lora_abstracts_modernbert-large,43,central_lora,fake peer review,1805,0.6781163434903047
+c3_lora_abstracts_modernbert-large,43,central_lora,image issues,1171,0.448334756618275
+c3_lora_abstracts_modernbert-large,43,central_lora,other/unspecified,270,0.32592592592592595
+c3_lora_abstracts_modernbert-large,43,central_lora,paper mill,2016,0.685515873015873
+c3_lora_abstracts_modernbert-large,43,central_lora,plagiarism/duplication,750,0.196
+c3_lora_abstracts_modernbert-large,44,central_lora,authorship/ethics,274,0.20802919708029197
+c3_lora_abstracts_modernbert-large,44,central_lora,data/results errors,638,0.25391849529780564
+c3_lora_abstracts_modernbert-large,44,central_lora,fabrication/falsification,116,0.20689655172413793
+c3_lora_abstracts_modernbert-large,44,central_lora,fake peer review,1822,0.6619099890230515
+c3_lora_abstracts_modernbert-large,44,central_lora,image issues,1219,0.4200164068908942
+c3_lora_abstracts_modernbert-large,44,central_lora,other/unspecified,289,0.3356401384083045
+c3_lora_abstracts_modernbert-large,44,central_lora,paper mill,1966,0.6820956256358087
+c3_lora_abstracts_modernbert-large,44,central_lora,plagiarism/duplication,724,0.19751381215469613
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,authorship/ethics,265,0.13584905660377358
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,data/results errors,595,0.20336134453781513
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,fabrication/falsification,104,0.038461538461538464
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,fake peer review,1753,0.5949800342270394
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,image issues,1212,0.297029702970297
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,other/unspecified,281,0.2526690391459075
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,paper mill,2031,0.654357459379616
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora,plagiarism/duplication,807,0.15861214374225527
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,authorship/ethics,265,0.3132075471698113
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,data/results errors,595,0.34285714285714286
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,fabrication/falsification,104,0.3269230769230769
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,fake peer review,1753,0.6742726754135767
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,image issues,1212,0.5123762376237624
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,other/unspecified,281,0.3487544483985765
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,paper mill,2031,0.6267848350566223
+c3_lora_abstracts_modernbert-large,42,fl_fedavg_lora_ft__personal,plagiarism/duplication,807,0.24535315985130113
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,authorship/ethics,277,0.16606498194945848
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,data/results errors,633,0.19747235387045814
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,fabrication/falsification,126,0.047619047619047616
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,fake peer review,1805,0.6365650969529086
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,image issues,1171,0.3142613151152861
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,other/unspecified,270,0.25555555555555554
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,paper mill,2016,0.6721230158730159
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora,plagiarism/duplication,750,0.16933333333333334
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,authorship/ethics,277,0.3249097472924188
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,data/results errors,633,0.3333333333333333
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,fabrication/falsification,126,0.2857142857142857
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,fake peer review,1805,0.7130193905817175
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,image issues,1171,0.5098206660973527
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,other/unspecified,270,0.34444444444444444
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,paper mill,2016,0.6716269841269841
+c3_lora_abstracts_modernbert-large,43,fl_fedavg_lora_ft__personal,plagiarism/duplication,750,0.25733333333333336
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,authorship/ethics,274,0.1386861313868613
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,data/results errors,638,0.17398119122257052
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,fabrication/falsification,116,0.0603448275862069
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,fake peer review,1822,0.5718990120746432
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,image issues,1219,0.3281378178835111
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,other/unspecified,289,0.2629757785467128
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,paper mill,1966,0.6795523906408952
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora,plagiarism/duplication,724,0.15607734806629833
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,authorship/ethics,274,0.2846715328467153
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,data/results errors,638,0.2962382445141066
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,fabrication/falsification,116,0.25
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,fake peer review,1822,0.7047200878155873
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,image issues,1219,0.48236259228876127
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,other/unspecified,289,0.370242214532872
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,paper mill,1966,0.7009155645981688
+c3_lora_abstracts_modernbert-large,44,fl_fedavg_lora_ft__personal,plagiarism/duplication,724,0.23756906077348067
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,authorship/ethics,265,0.2641509433962264
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,data/results errors,595,0.30084033613445377
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,fabrication/falsification,104,0.1346153846153846
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,fake peer review,1753,0.6742726754135767
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,image issues,1212,0.5115511551155115
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,other/unspecified,281,0.3202846975088968
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,paper mill,2031,0.6322008862629247
+c3_lora_abstracts_modernbert-large,42,local_lora__personal,plagiarism/duplication,807,0.21313506815365552
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,authorship/ethics,277,0.296028880866426
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,data/results errors,633,0.28751974723538704
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,fabrication/falsification,126,0.14285714285714285
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,fake peer review,1805,0.6797783933518006
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,image issues,1171,0.5089666951323655
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,other/unspecified,270,0.3074074074074074
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,paper mill,2016,0.658234126984127
+c3_lora_abstracts_modernbert-large,43,local_lora__personal,plagiarism/duplication,750,0.22266666666666668
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,authorship/ethics,274,0.25547445255474455
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,data/results errors,638,0.30094043887147337
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,fabrication/falsification,116,0.20689655172413793
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,fake peer review,1822,0.6591657519209659
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,image issues,1219,0.4963084495488105
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,other/unspecified,289,0.3737024221453287
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,paper mill,1966,0.6622583926754833
+c3_lora_abstracts_modernbert-large,44,local_lora__personal,plagiarism/duplication,724,0.22099447513812154
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,authorship/ethics,265,0.2188679245283019
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,data/results errors,595,0.292436974789916
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,fabrication/falsification,104,0.3173076923076923
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,fake peer review,1753,0.6782658300057045
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,image issues,1212,0.518976897689769
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,other/unspecified,281,0.34519572953736655
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,paper mill,2031,0.6602658788774003
+c3_lora_abstracts_qwen3-1.7b,42,central_lora,plagiarism/duplication,807,0.20446096654275092
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,authorship/ethics,277,0.23826714801444043
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,data/results errors,633,0.28751974723538704
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,fabrication/falsification,126,0.2619047619047619
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,fake peer review,1805,0.7080332409972299
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,image issues,1171,0.4730999146029035
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,other/unspecified,270,0.36666666666666664
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,paper mill,2016,0.7013888888888888
+c3_lora_abstracts_qwen3-1.7b,43,central_lora,plagiarism/duplication,750,0.20933333333333334
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,authorship/ethics,274,0.23357664233576642
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,data/results errors,638,0.2445141065830721
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,fabrication/falsification,116,0.1896551724137931
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,fake peer review,1822,0.6695938529088913
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,image issues,1219,0.47908121410992616
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,other/unspecified,289,0.34256055363321797
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,paper mill,1966,0.7019328585961343
+c3_lora_abstracts_qwen3-1.7b,44,central_lora,plagiarism/duplication,724,0.20165745856353592
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,authorship/ethics,265,0.12075471698113208
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,data/results errors,595,0.1815126050420168
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,fabrication/falsification,104,0.009615384615384616
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,fake peer review,1753,0.6177980604677695
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,image issues,1212,0.30115511551155116
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,other/unspecified,281,0.24555160142348753
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,paper mill,2031,0.689807976366322
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora,plagiarism/duplication,807,0.14374225526641884
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,authorship/ethics,265,0.32452830188679244
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,data/results errors,595,0.3630252100840336
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,fabrication/falsification,104,0.3269230769230769
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,fake peer review,1753,0.7010838562464347
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,image issues,1212,0.5717821782178217
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,other/unspecified,281,0.37722419928825623
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,paper mill,2031,0.6607582471688823
+c3_lora_abstracts_qwen3-1.7b,42,fl_fedavg_lora_ft__personal,plagiarism/duplication,807,0.25650557620817843
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,authorship/ethics,277,0.16967509025270758
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,data/results errors,633,0.22748815165876776
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,fabrication/falsification,126,0.05555555555555555
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,fake peer review,1805,0.6277008310249308
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,image issues,1171,0.3142613151152861
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,other/unspecified,270,0.2518518518518518
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,paper mill,2016,0.6884920634920635
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora,plagiarism/duplication,750,0.17066666666666666
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,authorship/ethics,277,0.3212996389891697
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,data/results errors,633,0.3886255924170616
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,fabrication/falsification,126,0.29365079365079366
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,fake peer review,1805,0.7529085872576178
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,image issues,1171,0.5439795046968403
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,other/unspecified,270,0.3962962962962963
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,paper mill,2016,0.7113095238095238
+c3_lora_abstracts_qwen3-1.7b,43,fl_fedavg_lora_ft__personal,plagiarism/duplication,750,0.2613333333333333
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,authorship/ethics,274,0.12773722627737227
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,data/results errors,638,0.18495297805642633
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,fabrication/falsification,116,0.06896551724137931
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,fake peer review,1822,0.6185510428100988
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,image issues,1219,0.3363412633305988
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,other/unspecified,289,0.28027681660899656
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,paper mill,1966,0.7090539165818922
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora,plagiarism/duplication,724,0.18922651933701656
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,authorship/ethics,274,0.3248175182481752
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,data/results errors,638,0.3510971786833856
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,fabrication/falsification,116,0.41379310344827586
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,fake peer review,1822,0.7184412733260154
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,image issues,1219,0.5602953240360952
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,other/unspecified,289,0.42214532871972316
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,paper mill,1966,0.671414038657172
+c3_lora_abstracts_qwen3-1.7b,44,fl_fedavg_lora_ft__personal,plagiarism/duplication,724,0.30386740331491713
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,authorship/ethics,265,0.32075471698113206
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,data/results errors,595,0.33949579831932775
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,fabrication/falsification,104,0.2980769230769231
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,fake peer review,1753,0.7079292641186538
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,image issues,1212,0.5453795379537953
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,other/unspecified,281,0.3487544483985765
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,paper mill,2031,0.6774987690792713
+c3_lora_abstracts_qwen3-1.7b,42,local_lora__personal,plagiarism/duplication,807,0.2664188351920694
