@@ -1,10 +1,12 @@
 """R4: replace the files and description of the FedRetract Zenodo DRAFT with the licence-aware release
 (release_scidata/, built by r3_build_scidata_release.py). Never publishes.
 
-Steps: read release/zenodo_state.json (draft id, bucket) -> delete the draft's current files -> upload
+Steps: read release/zenodo_state.json (draft id, bucket) -> delete draft files that differ from the release ->
+upload the missing ones (resumable, 3 attempts per file):
 FedRetract_data.zip, FedRetract_embeddings.zip, README.md, DATASHEET.md, SHA256SUMS.txt, MD5SUMS.txt ->
 update the description -> verify the uploaded MD5 checksums. Token: ~/.zenodo_token.
-Usage: python scripts/v2/r4_zenodo_update_draft.py [--dry-run]
+Usage: python scripts/v2/r4_zenodo_update_draft.py [--dry-run | --metadata-only]
+--metadata-only: update the description and check the MD5s of files uploaded by hand on the web page; no file changes.
 """
 from __future__ import annotations
 
@@ -62,6 +64,7 @@ def md5(p: Path) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--metadata-only", action="store_true")
     a = ap.parse_args()
     st = json.loads(STATE.read_text())
     tok = (Path.home() / ".zenodo_token").read_text().strip()
@@ -73,15 +76,29 @@ def main() -> None:
     print("draft", st["id"], "state", dep.get("state"), "files now:", [f["filename"] for f in old])
     if a.dry_run:
         return
-    for f in old:
-        r = s.delete(f"{API}/deposit/depositions/{st['id']}/files/{f['id']}")
-        r.raise_for_status()
+    want = {p.name: md5(p) for p in FILES}
+    send = [] if a.metadata_only else FILES  # --metadata-only: files were uploaded by hand, leave them alone
+    have = {f["filename"]: (f["id"], f["checksum"].replace("md5:", "")) for f in old}
+    for name, (fid, chk) in (have.items() if send else []):  # remove files that are not part of the release or differ from it
+        if want.get(name) != chk:
+            s.delete(f"{API}/deposit/depositions/{st['id']}/files/{fid}").raise_for_status()
+            print("deleted", name)
     bucket = dep["links"]["bucket"]
-    for p in FILES:
-        with open(p, "rb") as fh:
-            r = s.put(f"{bucket}/{p.name}", data=fh, timeout=3600)
-        r.raise_for_status()
-        print("uploaded", p.name, r.json().get("checksum"))
+    for p in send:
+        if have.get(p.name, (None, None))[1] == want[p.name]:
+            print("already uploaded", p.name)
+            continue
+        for attempt in range(1, 4):  # large files can drop on slow links: retry the whole file
+            try:
+                with open(p, "rb") as fh:
+                    r = s.put(f"{bucket}/{p.name}", data=fh, timeout=7200)
+                r.raise_for_status()
+                print("uploaded", p.name, r.json().get("checksum"), flush=True)
+                break
+            except requests.RequestException as e:
+                print(f"attempt {attempt} failed for {p.name}: {type(e).__name__}", flush=True)
+                if attempt == 3:
+                    raise
     meta = dict(METADATA)
     meta["description"] = DESCRIPTION.strip()
     r = s.put(f"{API}/deposit/depositions/{st['id']}", json={"metadata": meta})
