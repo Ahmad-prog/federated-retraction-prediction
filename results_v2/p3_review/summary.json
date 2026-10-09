@@ -1,0 +1,44 @@
+{
+ "format": {
+  "format_only_auprc": 0.5842590331556623,
+  "format_only_auc": 0.7371318444261881,
+  "base_rate": 0.2898498281165189,
+  "format_only_within_subfield_auc": 0.7066961169688357,
+  "top_features": {
+   "title_colon": 0.20100000500679016,
+   "title_chars": 0.17599999904632568,
+   "title_lowerstart": 0.09700000286102295,
+   "abs_colon": 0.061000000685453415,
+   "title_sent": 0.04899999871850014,
+   "title_digit": 0.04800000041723251,
+   "title_endsdot": 0.03999999910593033,
+   "abs_upper": 0.03799999877810478
+  },
+  "lm_within_format_deciles": {
+   "ModernBERT-base": {
+    "lm_auc": 0.856,
+    "lm_auc_within_format_deciles": 0.802
+   },
+   "ModernBERT-large": {
+    "lm_auc": 0.866,
+    "lm_auc_within_format_deciles": 0.816
+   },
+   "Qwen3-1.7B": {
+    "lm_auc": 0.879,
+    "lm_auc_within_format_deciles": 0.837
+   }
+  },
+  "has_abstract_by_label": {
+   "0": 0.6887203242617256,
+   "1": 0.7033253887186471
+  },
+  "abstract_words_median_by_label": {
+   "0": 205.0,
+   "1": 212.0
+  },
+  "title_chars_median_by_label": {
+   "0": 101.0,
+   "1": 104.0
+  }
+ }
+}
