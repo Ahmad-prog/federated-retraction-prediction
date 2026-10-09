@@ -1,0 +1,297 @@
+{
+ "benchmark": {
+  "n": 121594,
+  "n_retracted": 35244,
+  "n_control": 86350,
+  "has_abstract_share": {
+   "retracted": 0.7033253887186471,
+   "control": 0.6887203242617256
+  },
+  "year_min": 1984,
+  "year_max": 2025,
+  "n_publishers": 93,
+  "n_venues": 11467,
+  "n_fields": 26,
+  "n_subfields": 243,
+  "silo_publisher_sizes": {
+   "Elsevier BV": 18944,
+   "Hindawi Publishing Corporation": 26191,
+   "IOS Press": 8004,
+   "Other": 26576,
+   "Public Library of Science": 4904,
+   "SAGE Publishing": 4381,
+   "Spandidos Publishing": 2672,
+   "Springer Science+Business Media": 16804,
+   "Taylor & Francis": 4200,
+   "Wiley": 8918
+  },
+  "silo_publisher_retracted_rate": {
+   "Elsevier BV": 0.278,
+   "Hindawi Publishing Corporation": 0.351,
+   "IOS Press": 0.259,
+   "Other": 0.272,
+   "Public Library of Science": 0.252,
+   "SAGE Publishing": 0.255,
+   "Spandidos Publishing": 0.263,
+   "Springer Science+Business Media": 0.266,
+   "Taylor & Francis": 0.266,
+   "Wiley": 0.319
+  },
+  "top_fields": {
+   "Medicine": 31701,
+   "Engineering": 16010,
+   "Biochemistry, Genetics and Molecular Biology": 15285,
+   "Computer Science": 10067,
+   "Social Sciences": 5258,
+   "Environmental Science": 4969,
+   "Materials Science": 4510,
+   "Agricultural and Biological Sciences": 4209,
+   "Neuroscience": 3202,
+   "Psychology": 2866
+  },
+  "top_first_author_countries": {
+   "CN": 43271,
+   "US": 13924,
+   "": 10210,
+   "IN": 5984,
+   "GB": 3201,
+   "JP": 3059,
+   "DE": 2908,
+   "IR": 2633,
+   "KR": 2317,
+   "IT": 2195
+  },
+  "year_counts": {
+   "0": {
+    "1984": 18,
+    "1985": 0,
+    "1987": 0,
+    "1990": 28,
+    "1991": 35,
+    "1992": 28,
+    "1994": 15,
+    "1995": 51,
+    "1996": 32,
+    "1997": 44,
+    "1998": 65,
+    "1999": 104,
+    "2000": 178,
+    "2001": 249,
+    "2002": 424,
+    "2003": 353,
+    "2004": 558,
+    "2005": 620,
+    "2006": 848,
+    "2007": 1224,
+    "2008": 1059,
+    "2009": 1323,
+    "2010": 1695,
+    "2011": 2013,
+    "2012": 2290,
+    "2013": 2460,
+    "2014": 3154,
+    "2015": 3196,
+    "2016": 3006,
+    "2017": 3973,
+    "2018": 5088,
+    "2019": 6245,
+    "2020": 7862,
+    "2021": 13375,
+    "2022": 16827,
+    "2023": 5018,
+    "2024": 2461,
+    "2025": 431
+   },
+   "1": {
+    "1984": 5,
+    "1985": 1,
+    "1987": 1,
+    "1990": 12,
+    "1991": 11,
+    "1992": 9,
+    "1994": 3,
+    "1995": 17,
+    "1996": 11,
+    "1997": 14,
+    "1998": 25,
+    "1999": 36,
+    "2000": 62,
+    "2001": 86,
+    "2002": 155,
+    "2003": 142,
+    "2004": 203,
+    "2005": 235,
+    "2006": 319,
+    "2007": 446,
+    "2008": 385,
+    "2009": 467,
+    "2010": 583,
+    "2011": 699,
+    "2012": 786,
+    "2013": 858,
+    "2014": 1100,
+    "2015": 1167,
+    "2016": 1060,
+    "2017": 1420,
+    "2018": 1905,
+    "2019": 2291,
+    "2020": 2934,
+    "2021": 4963,
+    "2022": 9448,
+    "2023": 1936,
+    "2024": 1268,
+    "2025": 181
+   }
+  },
+  "columns": [
+   "doi",
+   "openalex_id",
+   "year",
+   "pub_date",
+   "publisher",
+   "venue",
+   "venue_id",
+   "issn_l",
+   "field",
+   "subfield",
+   "n_authors",
+   "n_countries",
+   "countries",
+   "first_author_country",
+   "is_oa",
+   "n_references",
+   "retracted",
+   "retraction_date",
+   "reason",
+   "title",
+   "abstract",
+   "abstract_leak_sentences",
+   "has_abstract",
+   "flesch_reading_ease",
+   "flesch_kincaid",
+   "gunning_fog",
+   "smog",
+   "abstract_len_words",
+   "hedge_ratio",
+   "certainty_ratio",
+   "cites_pub2",
+   "in_setting_pub2",
+   "in_setting_pub"
+  ]
+ },
+ "fulltext": {
+  "n": 14172,
+  "n_retracted": 5090,
+  "n_control": 9082,
+  "by_split": {
+   "0": {
+    "main": 9068,
+    "prospective": 14
+   },
+   "1": {
+    "main": 5075,
+    "prospective": 15
+   }
+  },
+  "licence_by_class": {
+   "0": {
+    "CC BY": 7109,
+    "CC BY-NC": 810,
+    "CC BY-NC-ND": 855,
+    "CC BY-NC-SA": 57,
+    "CC0": 50,
+    "none stated": 11,
+    "other": 190
+   },
+   "1": {
+    "CC BY": 4059,
+    "CC BY-NC": 421,
+    "CC BY-NC-ND": 463,
+    "CC BY-NC-SA": 27,
+    "CC0": 16,
+    "none stated": 17,
+    "other": 87
+   }
+  },
+  "text_file_counts": {
+   "cc_by": 11234,
+   "none (rebuild script)": 1623,
+   "cc_by_nc": 1315
+  },
+  "median_body_words": 4408.5,
+  "share_ge3_sections": 0.9508890770533446,
+  "share_docs_with_leak_sentences_removed": 0.20039514535704206,
+  "silo_sizes": {
+   "BioMed Central": 867,
+   "Dove Medical Press": 648,
+   "Elsevier BV": 821,
+   "Frontiers Media": 606,
+   "Hindawi Publishing Corporation": 6020,
+   "Other": 2846,
+   "Public Library of Science": 1750,
+   "Spandidos Publishing": 614
+  }
+ },
+ "prospective": {
+  "n": 213,
+  "with_abstract": 61,
+  "snapshot_date": "2026-07-19"
+ },
+ "retraction_watch_snapshot": {
+  "snapshot": "2026-10-07",
+  "n_records": 72963,
+  "n_retraction_notices": 67530,
+  "retractions_by_year": {
+   "2015": 1545,
+   "2016": 1683,
+   "2017": 1712,
+   "2018": 2534,
+   "2019": 2907,
+   "2020": 3080,
+   "2021": 3908,
+   "2022": 5591,
+   "2023": 13245,
+   "2024": 6497,
+   "2025": 5959,
+   "2026": 1944
+  },
+  "lag_years_mean": 2.45,
+  "lag_years_median": 1.34,
+  "n_prospective_positives": 253,
+  "reason_top": {
+   "": 42970,
+   "Investigation by Journal/Publisher": 23820,
+   "Unreliable Results and/or Conclusions": 19876,
+   "Investigation by Third Party": 15498,
+   "Concerns/Issues about Data": 12933,
+   "Concerns/Issues about Referencing/Attributions": 12404,
+   "Paper Mill": 10379,
+   "Concerns/Issues about Peer Review": 10361,
+   "Compromised Peer Review": 8918,
+   "Concerns/Issues about Results and/or Conclusions": 8305,
+   "Computer-Aided Content or Computer-Generated Content": 8031,
+   "Duplication of/in Image": 5256,
+   "Objections by Author(s)": 3407,
+   "Author Unresponsive": 3040,
+   "Concerns/Issues about Image": 3021
+  }
+ },
+ "embeddings": {
+  "abstracts_modernbert": [
+   121594,
+   1024
+  ],
+  "abstracts_qwen3emb8b": [
+   121594,
+   4096
+  ],
+  "fulltext_modernbert_sections": [
+   12549,
+   1024
+  ],
+  "fulltext_qwen3emb4b_sections": [
+   12549,
+   2560
+  ]
+ }
+}
