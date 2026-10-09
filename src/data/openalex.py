@@ -5,6 +5,7 @@ We batch-fetch works by DOI using the filter endpoint (50 DOIs per request).
 """
 from __future__ import annotations
 
+import os
 import json
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -14,7 +15,7 @@ import pandas as pd
 import requests
 
 BASE = "https://api.openalex.org/works"
-MAILTO = "ahmad.stmu@gmail.com"
+MAILTO = os.environ.get("OPENALEX_MAILTO", "")  # your e-mail for the OpenAlex polite pool
 CACHE_DIR = Path(__file__).resolve().parents[2] / "data" / "cache"
 
 

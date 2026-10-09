@@ -18,8 +18,8 @@ retrieved full text. It is fully reproducible from the pipeline below.
 
 ## Rebuilding the corpus from source
 
-All steps use public data and the polite-pool APIs (set your contact email in
-`src/data/openalex.py`).
+All steps use public data and the polite-pool APIs (set your contact e-mail in the
+`OPENALEX_MAILTO` environment variable).
 
 ```bash
 # 1. Retraction Watch positives (research articles with resolvable DOIs)
