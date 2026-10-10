@@ -77,10 +77,15 @@ tables regenerate without them.
 ## Data
 
 The FedRetract dataset (article identifiers, labels, cleaned text where licences allow, splits, embeddings and a
-datasheet) will be released with a DOI on publication. Until then, every step above rebuilds it from the public
+datasheet) will be released on Zenodo under the reserved DOI
+[10.5281/zenodo.23227728](https://doi.org/10.5281/zenodo.23227728) (data CC BY 4.0, code MIT). The link resolves once
+the record is published. Until then, every step above rebuilds it from the public
 sources: the Retraction Watch database (distributed by Crossref), OpenAlex and the Europe PMC / PMC open-access subset.
 `scripts/v2/r1_build_release.py` packages a rebuilt `data_v2/` into the release layout, and
-`scripts/v2/rebuild_fulltext.py` re-downloads full text whose licence does not allow redistribution.
+`scripts/v2/r3_build_scidata_release.py` turns it into the licence-aware release: abstracts are shared only where the
+article's licence allows it, with a SHA-256 checksum for the others. `scripts/v2/rebuild_abstracts.py` rebuilds those
+abstracts from OpenAlex and checks them against the checksums, and `scripts/v2/rebuild_fulltext.py` re-downloads full
+text whose licence does not allow redistribution.
 
 The earlier metadata-only feature matrix in `data/processed/` belongs to the reference experiments in `scripts/`
 and is not used by the pipeline above.
